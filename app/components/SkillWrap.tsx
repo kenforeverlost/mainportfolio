@@ -29,7 +29,7 @@ interface Props {
 }
 
 const iconClass = 'fill-secondary text-5xl'
-var iconObject = null
+let iconObject = null
 
 export default function SkillWrap({ skillName }: Props) {
   switch (skillName) {

@@ -77,7 +77,7 @@ export default function Home() {
         return
       } else {
         axios
-          .post('./lib/mail', mailForm)
+          .post('/lib/mail', mailForm)
           .then(function ({ data }) {
             if (R.equals(data.status_code, 200)) {
               setMailFormProcessing(false)
@@ -459,7 +459,7 @@ export default function Home() {
                       <div className="h-11"></div>
                     ) : (
                       <div className={`alert ${mailFormAlert.type} shadow-lg`}>
-                        <div>
+                        <div className='flex flex-row items-center gap-5'>
                           <IoIosCheckmarkCircle />{' '}
                           <span>{mailFormAlert.message}</span>
                         </div>
