@@ -1,7 +1,7 @@
 import * as R from 'ramda'
 import nodemailer from 'nodemailer'
 
-export default function (req, res) {
+export default function Mail(req, res) {
   const transporter = nodemailer.createTransport({
     port: process.env.NODEMAILER_PORT,
     host: process.env.NODEMAILER_HOST,
@@ -22,7 +22,7 @@ export default function (req, res) {
   const simpleEmailFormat = /^[a-zA-Z0-9.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 
   if (R.and(req.body.email !== '', req.body.email.match(simpleEmailFormat))) {
-    transporter.sendMail(mailData, function (error, data) {
+    transporter.sendMail(mailData, function (error) {
       if (error) {
         res.send({
           status_code: 400,

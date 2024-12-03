@@ -3,7 +3,6 @@
 import * as R from 'ramda'
 import Head from 'next/head'
 import { useState } from 'react'
-import nodemailer from 'nodemailer'
 import axios from 'axios'
 import { BsCameraFill } from 'react-icons/bs'
 import { FaBitbucket } from 'react-icons/fa'
@@ -12,20 +11,21 @@ import { RiMenu5Fill } from 'react-icons/ri'
 import { SiLinkedin } from 'react-icons/si'
 import ProfileSection from '@components/ProfileSection'
 import SkillWrap from '@components/SkillWrap'
+import { AlertType, MailFormType } from '@lib/types'
 
 export default function Home() {
-  const [mailForm, setMailForm] = useState<any>({
+  const [mailForm, setMailForm] = useState<MailFormType>({
     name: '',
     email: '',
     message: '',
   })
-  const [formInputClass, setFormInputClass] = useState<any>({
+  const [formInputClass, setFormInputClass] = useState<MailFormType>({
     name: 'input-primary',
     email: 'input-primary',
     message: 'textarea-primary',
   })
   const [mailFormProcessing, setMailFormProcessing] = useState<boolean>(false)
-  const [mailFormAlert, setMailFormAlert] = useState<any>({
+  const [mailFormAlert, setMailFormAlert] = useState<AlertType>({
     type: '',
     message: '',
   })
@@ -33,20 +33,20 @@ export default function Home() {
   const profile_picture_url =
     'https://exiknbsnihiuomwzvubu.supabase.co/storage/v1/object/public/images/profile_picture.png'
 
-  const changemailForm = (id: string, event: any) => {
+  const changeMailForm = (id: string, event: string) => {
     setMailForm({
       ...mailForm,
       [id]: event,
     })
   }
 
-  const submitmailForm = () => {
-    var missingInfoFlag = false
-    var newformInputClass = {
+  const submitMailForm = () => {
+    const newformInputClass = {
       name: 'input-primary',
       email: 'input-primary',
       message: 'textarea-primary',
     }
+    let missingInfoFlag = false
     setMailFormProcessing(true)
 
     try {
@@ -77,7 +77,7 @@ export default function Home() {
         return
       } else {
         axios
-          .post('/api/mail', mailForm)
+          .post('./lib/mail', mailForm)
           .then(function ({ data }) {
             if (R.equals(data.status_code, 200)) {
               setMailFormProcessing(false)
@@ -98,7 +98,7 @@ export default function Home() {
               })
             }
           })
-          .catch(function (error) {
+          .catch(function () {
             setMailFormProcessing(false)
             setMailFormAlert({
               type: 'error',
@@ -106,8 +106,8 @@ export default function Home() {
             })
           })
       }
-    } catch (error: any) {
-      console.log(error.response.data)
+    } catch (error: unknown) {
+      console.log(error)
     }
   }
 
@@ -180,6 +180,7 @@ export default function Home() {
                 <img
                   className="w-full max-w-[300px]"
                   src={profile_picture_url}
+                  alt="profile_picture"
                 />
               </div>
               <div className="flex flex-col justify-center gap-5">
@@ -281,7 +282,7 @@ export default function Home() {
                     href="https://www.lasvegasrealtor.com/"
                     target="_blank"
                   >
-                    <img src="https://exiknbsnihiuomwzvubu.supabase.co/storage/v1/object/public/images/lvr_logo.png" />
+                    <img src="https://exiknbsnihiuomwzvubu.supabase.co/storage/v1/object/public/images/lvr_logo.png" alt="LVR" />
                   </a>
                   <div className="text-xl font-bold">Web Developer</div>
                   <div className="text-lg">Las Vegas REALTORS®</div>
@@ -335,7 +336,7 @@ export default function Home() {
                     href="https://www.fdm4.com/"
                     target="_blank"
                   >
-                    <img src="https://exiknbsnihiuomwzvubu.supabase.co/storage/v1/object/public/images/fdm4_logo.png" />
+                    <img src="https://exiknbsnihiuomwzvubu.supabase.co/storage/v1/object/public/images/fdm4_logo.png" alt="FDM4"/>
                   </a>
                   <div className="text-xl font-bold">Programmer Analyst</div>
                   <div className="text-lg">FDM4 America, Inc.</div>
@@ -422,7 +423,7 @@ export default function Home() {
                       className={`input input-bordered w-full ${formInputClass.name}`}
                       value={mailForm.name}
                       onChange={(e) => {
-                        changemailForm('name', e.target.value)
+                        changeMailForm('name', e.target.value)
                       }}
                     />
                     <input
@@ -431,7 +432,7 @@ export default function Home() {
                       className={`input input-bordered w-full ${formInputClass.email}`}
                       value={mailForm.email}
                       onChange={(e) => {
-                        changemailForm('email', e.target.value)
+                        changeMailForm('email', e.target.value)
                       }}
                     />
                     <textarea
@@ -439,7 +440,7 @@ export default function Home() {
                       placeholder="Message"
                       value={mailForm.message}
                       onChange={(e) => {
-                        changemailForm('message', e.target.value)
+                        changeMailForm('message', e.target.value)
                       }}
                     ></textarea>
                     {mailFormProcessing ? (
@@ -448,7 +449,7 @@ export default function Home() {
                       <button
                         className="btn btn-primary"
                         onClick={() => {
-                          submitmailForm()
+                          submitMailForm()
                         }}
                       >
                         Send

@@ -4,7 +4,7 @@ interface Props {
   titleClass: string
   textClass: string
   backgroundClass: string
-  children: any
+  children: React.ReactNode
 }
 
 export default function ProfileSection({
