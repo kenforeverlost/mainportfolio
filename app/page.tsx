@@ -3,7 +3,6 @@
 import * as R from 'ramda'
 import Head from 'next/head'
 import { useState } from 'react'
-import axios from 'axios'
 import { BsCameraFill } from 'react-icons/bs'
 import { FaBitbucket } from 'react-icons/fa'
 import { IoIosCheckmarkCircle } from 'react-icons/io'
@@ -40,7 +39,7 @@ export default function Home() {
     })
   }
 
-  const submitMailForm = () => {
+  const submitMailForm = async () => {
     const newformInputClass = {
       name: 'input-primary',
       email: 'input-primary',
@@ -76,14 +75,22 @@ export default function Home() {
         setMailFormProcessing(false)
         return
       } else {
-        axios
-          .post('/lib/mail', mailForm)
-          .then(function ({ data }) {
-            if (R.equals(data.status_code, 200)) {
+        const url = '/api/mail'
+
+        await fetch(url, {
+          method: 'POST',
+          body: JSON.stringify(mailForm),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+          .then((response) => response.json())
+          .then(function (response) {
+            if (R.equals(response.status_code, 200)) {
               setMailFormProcessing(false)
               setMailFormAlert({
                 type: 'alert-success',
-                message: data.message,
+                message: response.message,
               })
               setMailForm({
                 name: '',
@@ -94,7 +101,7 @@ export default function Home() {
               setMailFormProcessing(false)
               setMailFormAlert({
                 type: 'alert-error',
-                message: data.message,
+                message: response.message,
               })
             }
           })
@@ -444,27 +451,29 @@ export default function Home() {
                       }}
                     ></textarea>
                     {mailFormProcessing ? (
-                      <button className="btn loading">Sending...</button>
+                      <div className='flex flex-row items-center justify-center'>
+                        <button className="btn loading">Sending...</button>
+                      </div>
                     ) : (
                       <button
                         className="btn btn-primary"
-                        onClick={() => {
-                          submitMailForm()
+                        onClick={async () => {
+                          await submitMailForm()
                         }}
                       >
                         Send
                       </button>
                     )}
-                    {R.isEmpty(mailFormAlert.message) ? (
-                      <div className="h-11"></div>
-                    ) : (
-                      <div className={`alert ${mailFormAlert.type} shadow-lg`}>
-                        <div className='flex flex-row items-center gap-5'>
-                          <IoIosCheckmarkCircle />{' '}
-                          <span>{mailFormAlert.message}</span>
+                    <div className="h-12">
+                      {!R.isEmpty(mailFormAlert.message) && (
+                        <div className={`alert ${mailFormAlert.type} shadow-lg`}>
+                          <div className='flex flex-row items-center gap-5'>
+                            <IoIosCheckmarkCircle />{' '}
+                            <span>{mailFormAlert.message}</span>
+                          </div>
                         </div>
-                      </div>
-                    )}
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
