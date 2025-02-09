@@ -4,7 +4,7 @@ import * as R from 'ramda'
 import Head from 'next/head'
 import { useState } from 'react'
 import { BsCameraFill } from 'react-icons/bs'
-import { FaBitbucket } from 'react-icons/fa'
+import { FaBitbucket, FaGithub } from 'react-icons/fa'
 import { IoIosCheckmarkCircle } from 'react-icons/io'
 import { RiMenu5Fill } from 'react-icons/ri'
 import { SiLinkedin } from 'react-icons/si'
@@ -81,8 +81,8 @@ export default function Home() {
           method: 'POST',
           body: JSON.stringify(mailForm),
           headers: {
-            'Content-Type': 'application/json'
-          }
+            'Content-Type': 'application/json',
+          },
         })
           .then((response) => response.json())
           .then(function (response) {
@@ -247,30 +247,31 @@ export default function Home() {
                 picked up more languages and other helpful tools throughout my
                 career.
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-4">
-                <SkillWrap skillName="JavaScript" />
-                <SkillWrap skillName="CSS" />
-                <SkillWrap skillName="HTML" />
-                <SkillWrap skillName="TypeScript" />
-                <SkillWrap skillName="PHP" />
-                <SkillWrap skillName="SQL" />
-                <SkillWrap skillName="GraphQl" />
-                <SkillWrap skillName="Hasura" />
-                <SkillWrap skillName="Progress 4GL" />
-                <SkillWrap skillName="C++" />
-                <SkillWrap skillName="jQuery" />
-                <SkillWrap skillName="Bootstrap" />
-                <SkillWrap skillName="Next.js" />
-                <SkillWrap skillName="React" />
-                <SkillWrap skillName="Ionic Framework" />
-                <SkillWrap skillName="Node.js" />
-                <SkillWrap skillName="GitHub" />
-                <SkillWrap skillName="Bitbucket" />
-                <SkillWrap skillName="Jira" />
-                <SkillWrap skillName="Vercel" />
-                <SkillWrap skillName="Supabase" />
-                <SkillWrap skillName="Expo Go" />
-                <SkillWrap skillName="Photoshop" />
+              <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4">
+                <SkillWrap skillName="JavaScript" type="Language" />
+                <SkillWrap skillName="CSS" type="Language" />
+                <SkillWrap skillName="HTML" type="Language" />
+                <SkillWrap skillName="TypeScript" type="Language" />
+                <SkillWrap skillName="PHP" type="Language" />
+                <SkillWrap skillName="SQL" type="Language" />
+                <SkillWrap skillName="GraphQl" type="Language" />
+                <SkillWrap skillName="Openedge ABL" type="Language" />
+                <SkillWrap skillName="C++" type="Language" />
+                <SkillWrap skillName="jQuery" type="Library" />
+                <SkillWrap skillName="React" type="Library" />
+                <SkillWrap skillName="Material UI" type="Library" />
+                <SkillWrap skillName="Next.js" type="Framework" />
+                <SkillWrap skillName="Bootstrap" type="Framework" />
+                <SkillWrap skillName="Tailwind CSS" type="Framework" />
+                <SkillWrap skillName="Node.js" type="Platform" />
+                <SkillWrap skillName="GitHub" type="Platform" />
+                <SkillWrap skillName="Bitbucket" type="Platform" />
+                <SkillWrap skillName="Vercel" type="Platform" />
+                <SkillWrap skillName="Supabase" type="Platform" />
+                <SkillWrap skillName="Hasura" type="Platform" />
+                <SkillWrap skillName="Expo Go" type="Platform" />
+                <SkillWrap skillName="Jira" type="Platform" />
+                <SkillWrap skillName="Photoshop" type="Dev Tool" />
               </div>
             </div>
           </ProfileSection>
@@ -285,11 +286,14 @@ export default function Home() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-center">
                 <div className="flex flex-col items-center text-center justify-center">
                   <a
-                    className="w-8/12 sm:w-6/12 md:w-7/12 lg:w-5/12 mb-8"
+                    className="w-5/12 mb-8"
                     href="https://www.lasvegasrealtor.com/"
                     target="_blank"
                   >
-                    <img src="https://exiknbsnihiuomwzvubu.supabase.co/storage/v1/object/public/images/lvr_logo.png" alt="LVR" />
+                    <img
+                      src="https://exiknbsnihiuomwzvubu.supabase.co/storage/v1/object/public/images/lvr_logo.png"
+                      alt="LVR"
+                    />
                   </a>
                   <div className="text-xl font-bold">Web Developer</div>
                   <div className="text-lg">Las Vegas REALTORS®</div>
@@ -332,18 +336,22 @@ export default function Home() {
                   </div>
                   <div>
                     <span className="font-bold ">Main Tools:</span> PHP, SQL,
-                    Javascript, HTML, CSS, Node.js, React, Next.js, Supabase
+                    Javascript, HTML, CSS, Next.js, React, Tailwind CSS,
+                    Supabase
                   </div>
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-center">
                 <div className="flex flex-col items-center text-center justify-center">
                   <a
-                    className="w-8/12 sm:w-6/12 md:w-7/12 lg:w-5/12 mb-8"
+                    className="w-5/12 mb-8"
                     href="https://www.fdm4.com/"
                     target="_blank"
                   >
-                    <img src="https://exiknbsnihiuomwzvubu.supabase.co/storage/v1/object/public/images/fdm4_logo.png" alt="FDM4"/>
+                    <img
+                      src="https://exiknbsnihiuomwzvubu.supabase.co/storage/v1/object/public/images/fdm4_logo.png"
+                      alt="FDM4"
+                    />
                   </a>
                   <div className="text-xl font-bold">Programmer Analyst</div>
                   <div className="text-lg">FDM4 America, Inc.</div>
@@ -409,11 +417,8 @@ export default function Home() {
                     >
                       <SiLinkedin className="fill-primary text-4xl" />
                     </a>
-                    <a
-                      href="https://bitbucket.org/Kenforeverlost"
-                      target="_blank"
-                    >
-                      <FaBitbucket className="fill-primary text-4xl" />
+                    <a href="https://github.com/kenforeverlost" target="_blank">
+                      <FaGithub className="fill-primary text-4xl" />
                     </a>
                     <a href="https://foreverlostphoto.com/" target="_blank">
                       <BsCameraFill className="fill-primary text-4xl" />
@@ -451,7 +456,7 @@ export default function Home() {
                       }}
                     ></textarea>
                     {mailFormProcessing ? (
-                      <div className='flex flex-row items-center justify-center'>
+                      <div className="flex flex-row items-center justify-center">
                         <button className="btn loading">Sending...</button>
                       </div>
                     ) : (
@@ -466,8 +471,10 @@ export default function Home() {
                     )}
                     <div className="h-12">
                       {!R.isEmpty(mailFormAlert.message) && (
-                        <div className={`alert ${mailFormAlert.type} shadow-lg`}>
-                          <div className='flex flex-row items-center gap-5'>
+                        <div
+                          className={`alert ${mailFormAlert.type} shadow-lg`}
+                        >
+                          <div className="flex flex-row items-center gap-5">
                             <IoIosCheckmarkCircle />{' '}
                             <span>{mailFormAlert.message}</span>
                           </div>
@@ -482,7 +489,7 @@ export default function Home() {
         </div>
         <footer className="footer footer-center p-5 bg-base-100 text-base-content rounded">
           <div>
-            <p>Copyright © 2024 - Kendrick De La Pena</p>
+            <p>Copyright © 2025 - Kendrick De La Pena</p>
           </div>
         </footer>
       </main>
