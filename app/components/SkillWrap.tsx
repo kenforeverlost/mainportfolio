@@ -15,23 +15,26 @@ import {
   SiHasura,
   SiIonic,
   SiJira,
+  SiMui,
   SiNextdotjs,
   SiNodedotjs,
   SiPhp,
   SiProgress,
   SiSupabase,
+  SiTailwindcss,
   SiTypescript,
   SiVercel,
 } from 'react-icons/si'
 
 interface Props {
   skillName: string
+  type: 'Language' | 'Library' | 'Framework' | 'Platform' | 'Dev Tool'
 }
 
 const iconClass = 'fill-secondary text-5xl'
 let iconObject = null
 
-export default function SkillWrap({ skillName }: Props) {
+export default function SkillWrap({ skillName, type }: Props) {
   switch (skillName) {
     case 'Bitbucket':
       iconObject = <FaBitbucket className={iconClass} />
@@ -72,6 +75,9 @@ export default function SkillWrap({ skillName }: Props) {
     case 'jQuery':
       iconObject = <DiJqueryLogo className={iconClass} />
       break
+    case 'Material UI':
+      iconObject = <SiMui className={iconClass} />
+      break
     case 'Next.js':
       iconObject = <SiNextdotjs className={iconClass} />
       break
@@ -85,6 +91,7 @@ export default function SkillWrap({ skillName }: Props) {
       iconObject = <SiAdobephotoshop className={iconClass} />
       break
     case 'Progress 4GL':
+    case 'Openedge ABL':
       iconObject = <SiProgress className={iconClass} />
       break
     case 'React':
@@ -95,6 +102,9 @@ export default function SkillWrap({ skillName }: Props) {
       break
     case 'Supabase':
       iconObject = <SiSupabase className={iconClass} />
+      break
+    case 'Tailwind CSS':
+      iconObject = <SiTailwindcss className={iconClass} />
       break
     case 'TypeScript':
       iconObject = <SiTypescript className={iconClass} />
@@ -110,7 +120,10 @@ export default function SkillWrap({ skillName }: Props) {
   return (
     <div className="flex flex-col gap-1 items-center py-2">
       {iconObject}
-      <div className="font-bold text-primary">{skillName}</div>
+      <div className="text-center">
+        <div className="font-bold text-primary">{skillName}</div>
+        <div className="text-primary italic text-xs">{type}</div>
+      </div>
     </div>
   )
 }
