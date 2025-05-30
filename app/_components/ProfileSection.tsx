@@ -7,14 +7,14 @@ interface Props {
   children: React.ReactNode
 }
 
-export default function ProfileSection({
+const ProfileSection = ({
   id,
   title,
   titleClass,
   textClass,
   backgroundClass,
   children,
-}: Props) {
+}: Props) => {
   return (
     <div id={id} className={`${backgroundClass}`}>
       <div className="flex justify-center">
@@ -26,3 +26,5 @@ export default function ProfileSection({
     </div>
   )
 }
+
+export default ProfileSection
