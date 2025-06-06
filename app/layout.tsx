@@ -1,5 +1,9 @@
 import type { Metadata } from 'next'
+import { CssBaseline } from '@mui/material'
+import { ThemeProvider } from '@mui/material/styles'
 import './globals.css'
+
+import defaultTheme from '@lib/theme'
 
 export const metadata: Metadata = {
   title: 'Kendrick De La Pena',
@@ -13,7 +17,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased`}>{children}</body>
+      <body className={`antialiased`}>
+        <ThemeProvider theme={defaultTheme}>
+          <CssBaseline />
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   )
 }
