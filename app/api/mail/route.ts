@@ -1,11 +1,9 @@
-import { NextResponse } from "next/server";
+import { NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 
-export async function POST(
-  req: Request,
-) {
+export async function POST(req: Request) {
   const transporter = nodemailer.createTransport({
-    port:  process.env.NODE_ENV === 'production' ? 465 : 2525,
+    port: process.env.NODE_ENV === 'production' ? 465 : 2525,
     host: process.env.NODEMAILER_HOST,
     auth: {
       user: process.env.NODEMAILER_USER,
@@ -15,11 +13,7 @@ export async function POST(
   })
 
   const body = await req.json()
-  const {
-    name,
-    email,
-    message
-  } = body
+  const { name, email, message } = body
 
   const mailData = {
     from: '"KDLP Dev" <donotreply@kdlp.dev>',
@@ -46,7 +40,7 @@ export async function POST(
 
   try {
     await transporter.sendMail(mailData)
- 
+
     return NextResponse.json({
       status_code: 200,
       message: 'Message has been sent!',

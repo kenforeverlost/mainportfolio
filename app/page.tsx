@@ -1,6 +1,7 @@
 'use client'
 
 import Head from 'next/head'
+import { Box } from '@mui/material'
 
 import Footer from '@components/Footer'
 import Navigation from '@components/Navigation'
@@ -11,23 +12,21 @@ import Connect from '@features/Connect'
 
 const Home = () => {
   return (
-    <div>
+    <main>
       <Head>
         <title>Kendrick De La Pena</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="text-gray-100 min-h-screen">
+      <Box>
         <Navigation />
-        <div className="w-full">
-          <Introduction />
-          <Tools />
-          <History />
-          <Connect />
-        </div>
-      </main>
+        <Introduction />
+        <Tools />
+        <History />
+        <Connect />
+      </Box>
       <Footer />
-    </div>
+    </main>
   )
 }
 

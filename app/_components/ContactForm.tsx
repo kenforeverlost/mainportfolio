@@ -107,7 +107,7 @@ const ContactForm = () => {
     }
   }
   return (
-    <div className="form-control w-full max-w-lg flex flex-col gap-5">
+    <div className="form-control w-full flex flex-col gap-5">
       <input
         type="text"
         placeholder="Name"

@@ -1,29 +1,49 @@
+'use client'
+
+import React from 'react'
+import { Container, Stack, Typography } from '@mui/material'
+
 interface Props {
   id: string
   title: string
-  titleClass: string
-  textClass: string
-  backgroundClass: string
+  caption?: string
+  backgroundColor?: string
   children: React.ReactNode
 }
 
 const ProfileSection = ({
   id,
   title,
-  titleClass,
-  textClass,
-  backgroundClass,
+  caption,
+  backgroundColor,
   children,
 }: Props) => {
   return (
-    <div id={id} className={`${backgroundClass}`}>
-      <div className="flex justify-center">
-        <div className="w-full xl:w-[1280px] py-10 px-5">
-          <div className={`text-3xl font-bold ${titleClass}`}>{title}</div>
-          <div className={`px-2 py-5 ${textClass}`}>{children}</div>
-        </div>
-      </div>
-    </div>
+    <Stack
+      sx={{
+        background: backgroundColor ?? 'transparent',
+        width: '100%',
+      }}
+    >
+      <Container
+        id={id}
+        maxWidth="lg"
+        sx={{
+          paddingX: 3,
+          paddingY: 7,
+        }}
+      >
+        <Stack sx={{ direction: 'column', gap: 5 }}>
+          <Stack sx={{ direction: 'column', gap: 2 }}>
+            <Typography variant="h4" fontWeight={'bold'}>
+              {title}
+            </Typography>
+            {caption && <Typography variant="body1">{caption}</Typography>}
+          </Stack>
+          {children}
+        </Stack>
+      </Container>
+    </Stack>
   )
 }
 

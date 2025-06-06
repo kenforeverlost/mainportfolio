@@ -1,3 +1,4 @@
+import { BsCameraFill } from 'react-icons/bs'
 import {
   DiBootstrap,
   DiGithubBadge,
@@ -5,7 +6,16 @@ import {
   DiJqueryLogo,
   DiMysql,
 } from 'react-icons/di'
-import { FaBitbucket, FaHtml5, FaReact } from 'react-icons/fa'
+import {
+  FaBitbucket,
+  FaBriefcase,
+  FaGithub,
+  FaHtml5,
+  FaInfo,
+  FaPhone,
+  FaReact,
+  FaToolbox,
+} from 'react-icons/fa'
 import {
   SiAdobephotoshop,
   SiCplusplus,
@@ -14,6 +24,7 @@ import {
   SiGraphql,
   SiHasura,
   SiJira,
+  SiLinkedin,
   SiMui,
   SiNextdotjs,
   SiNodedotjs,
@@ -24,6 +35,29 @@ import {
   SiTypescript,
   SiVercel,
 } from 'react-icons/si'
+
+export const NAVIGATION_MENU = [
+  {
+    label: 'About',
+    section: 'about',
+    icon: <FaInfo />,
+  },
+  {
+    label: 'Skills',
+    section: 'skills',
+    icon: <FaToolbox />,
+  },
+  {
+    label: 'Experience',
+    section: 'experience',
+    icon: <FaBriefcase />,
+  },
+  {
+    label: 'Contact',
+    section: 'contact',
+    icon: <FaPhone />,
+  },
+]
 
 export const PROFILE_PICTURE_URL =
   'https://exiknbsnihiuomwzvubu.supabase.co/storage/v1/object/public/images/profile_picture.png'
@@ -184,5 +218,23 @@ export const WORK_EXPERIENCE = [
       'Produced code reviews on the work of other team members and assumed team lead duties when needed',
     ],
     tools: 'Openedge ABL, JavaScript, HTML, CSS, Bootstrap',
+  },
+]
+
+export const OTHER_LINKS = [
+  {
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/kendrickDLP',
+    icon: <SiLinkedin className="fill-primary text-4xl" />,
+  },
+  {
+    name: 'GitHub',
+    url: 'https://github.com/kenforeverlost',
+    icon: <FaGithub className="fill-primary text-4xl" />,
+  },
+  {
+    name: 'Portfolio',
+    url: 'https://foreverlostphoto.com/',
+    icon: <BsCameraFill className="fill-primary text-4xl" />,
   },
 ]

@@ -1,53 +1,122 @@
+'use client'
+
+import React, { useState } from 'react'
 import { RiMenu5Fill } from 'react-icons/ri'
+import {
+  Box,
+  Button,
+  Container,
+  Drawer,
+  IconButton,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material'
+
+import { NAVIGATION_MENU } from '@lib/constants'
 
 const Navigation = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      const paddingTop = 60
+      const elementPosition = element.offsetTop - paddingTop
+
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth',
+      })
+    }
+
+    if (isMenuOpen) {
+      setIsMenuOpen(false)
+    }
+  }
+
   return (
-    <div className="navbar bg-primary">
-      <div className="navbar-start flex-1">
-        <a className="btn btn-ghost normal-case text-xl hidden lg:flex">KDLP</a>
-        <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost lg:hidden">
-            <RiMenu5Fill className="text-3xl" />
-          </label>
-          <ul
-            tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-secondary rounded-box w-52"
-          >
-            <li>
-              <a href="#about">About</a>
-            </li>
-            <li>
-              <a href="#skills">Skills</a>
-            </li>
-            <li>
-              <a href="#experience">Experience</a>
-            </li>
-            <li>
-              <a href="#contact">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div className="navbar-center flex-1 justify-center lg:hidden">
-        <a className="btn btn-ghost normal-case text-xl ">KDLP</a>
-      </div>
-      <div className="navbar-end flex-1">
-        <ul className="menu menu-horizontal px-1 hidden lg:flex flex-none">
-          <li>
-            <a href="#about">About</a>
-          </li>
-          <li>
-            <a href="#skills">Skills</a>
-          </li>
-          <li>
-            <a href="#experience">Experience</a>
-          </li>
-          <li>
-            <a href="#contact">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <Box
+      component="header"
+      sx={{
+        bgcolor: 'primary.main',
+        boxShadow: 2,
+        paddingY: 2,
+        position: 'sticky',
+        top: 0,
+        zIndex: 50,
+      }}
+    >
+      <Container maxWidth="lg">
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
+        >
+          {isMobile && <Typography>&nbsp;</Typography>}
+          <Typography variant="h5" color="text.secondary" fontWeight={'bold'}>
+            KDLP
+          </Typography>
+          {isMobile ? (
+            <IconButton
+              size="large"
+              edge="start"
+              aria-label="menu"
+              sx={{
+                color: 'text.secondary',
+                marginRight: 2,
+              }}
+            >
+              <RiMenu5Fill onClick={() => setIsMenuOpen(!isMenuOpen)} />
+            </IconButton>
+          ) : (
+            <Box sx={{ display: 'flex', gap: 3 }}>
+              {NAVIGATION_MENU.map((item, key) => (
+                <Button
+                  key={key}
+                  variant="text"
+                  onClick={() => {
+                    scrollToSection(item.section)
+                  }}
+                  sx={{ cursor: 'pointer' }}
+                >
+                  <Typography color="text.secondary">{item.label}</Typography>
+                </Button>
+              ))}
+            </Box>
+          )}
+        </Box>
+      </Container>
+      <Drawer open={isMenuOpen} onClose={() => setIsMenuOpen(false)}>
+        <Box sx={{ minWidth: 250 }}>
+          <List>
+            {NAVIGATION_MENU.map((item, index) => (
+              <ListItem
+                key={index}
+                onClick={() => {
+                  scrollToSection(item.section)
+                }}
+              >
+                <ListItemButton sx={{ cursor: 'pointer' }}>
+                  <ListItemIcon>{item.icon}</ListItemIcon>
+                  <ListItemText primary={item.label} color="text.secondary" />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+      </Drawer>
+    </Box>
   )
 }
 
