@@ -1,16 +1,8 @@
-import { IconButton, Link, Stack, styled, Typography } from '@mui/material'
+import { Link, Stack, Typography } from '@mui/material'
 
 import ProfileSection from '@components/ProfileSection'
 import ContactForm from '@components/ContactForm'
-import { OTHER_LINKS } from '../_lib/constants'
-
-const StyledIconButton = styled(IconButton)(({ theme }) => ({
-  color: theme.palette.primary.main,
-  fontSize: 24,
-  '&:hover': {
-    backgroundColor: theme.palette.primary.main + '10', // 10% opacity
-  },
-}))
+import { OTHER_LINKS } from '@lib/constants'
 
 const Connect = () => {
   return (

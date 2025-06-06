@@ -22,7 +22,7 @@ const ProfileSection = ({
     <Stack
       sx={{
         background: backgroundColor ?? 'transparent',
-        width: '100%',
+        width: 1,
       }}
     >
       <Container
