@@ -59,8 +59,12 @@ export const NAVIGATION_MENU = [
   },
 ]
 
-export const PROFILE_PICTURE_URL =
-  'https://exiknbsnihiuomwzvubu.supabase.co/storage/v1/object/public/images/profile_picture.png'
+export const IMAGES = {
+  placeholder: 'placeholder.svg',
+  profile: '/profile/profile-picture.png',
+  fdm4: '/company/fdm4.png',
+  lvr: '/company/lvr.png',
+}
 
 export const SKILLS_ICON_CLASS = 'fill-secondary text-5xl'
 export const SKILLS = [

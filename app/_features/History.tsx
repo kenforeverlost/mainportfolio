@@ -2,6 +2,7 @@ import { Box } from '@mui/material'
 
 import HistoryWrap from '@components/HistoryWrap'
 import ProfileSection from '@components/ProfileSection'
+import { IMAGES } from '@lib/constants'
 
 const History = () => {
   return (
@@ -18,9 +19,11 @@ const History = () => {
             years: 'September 2020 to Current',
           }}
           companyImage={{
-            src: 'https://exiknbsnihiuomwzvubu.supabase.co/storage/v1/object/public/images/lvr_logo.png',
+            src: IMAGES.lvr,
             alt: 'LVR',
             link: 'https://www.lasvegasrealtor.com/',
+            width: 550,
+            height: 274,
           }}
           hightlights={[
             'Refined and enhanced the LVR member web portal to increase membership engagement and accessibility of association news',
@@ -49,9 +52,11 @@ const History = () => {
             years: 'June 2015 to June 2020',
           }}
           companyImage={{
-            src: 'https://exiknbsnihiuomwzvubu.supabase.co/storage/v1/object/public/images/fdm4_logo.png',
+            src: IMAGES.fdm4,
             alt: 'FDM4',
             link: 'https://www.fdm4.com/',
+            width: 550,
+            height: 133,
           }}
           hightlights={[
             'Strengthened the quality of the ERP, WMS, and E-Commerce software solutions through custom modifications and bug fixes',

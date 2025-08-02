@@ -1,4 +1,5 @@
-import { Link, List, ListItem, Stack, Typography } from '@mui/material'
+import { Box, Link, List, ListItem, Stack, Typography } from '@mui/material'
+import Image from 'next/image'
 
 const HistoryWrap = ({
   company,
@@ -7,7 +8,13 @@ const HistoryWrap = ({
   mainTools,
 }: {
   company: { name: string; position: string; years: string }
-  companyImage: { src: string; alt: string; link: string }
+  companyImage: {
+    src: string
+    alt: string
+    link: string
+    width: number
+    height: number
+  }
   hightlights: string[]
   mainTools: string[]
 }) => {
@@ -32,10 +39,12 @@ const HistoryWrap = ({
         }}
       >
         <Link href={companyImage.link} target="_blank">
-          <img
-            src={companyImage.src}
+          <Image
+            src={companyImage.src || '/placeholder.svg'}
             alt={companyImage.alt}
-            style={{ width: '100%', maxWidth: 220 }}
+            width={companyImage.width}
+            height={companyImage.height}
+            style={{ maxWidth: 220, height: 'auto' }}
           />
         </Link>
         <Stack>

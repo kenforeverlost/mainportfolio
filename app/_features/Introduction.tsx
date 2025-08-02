@@ -1,8 +1,10 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { Box, Typography } from '@mui/material'
 
 import ProfileSection from '@components/ProfileSection'
-import { PROFILE_PICTURE_URL } from '@lib/constants'
+import StyledPaper from '@components/StyledPaper'
+import { IMAGES } from '@lib/constants'
 
 const Introduction = () => {
   return (
@@ -28,11 +30,14 @@ const Introduction = () => {
             md: { width: 1 / 3, flexShrink: 0 },
           }}
         >
-          <img
-            src={PROFILE_PICTURE_URL}
-            alt="profile_picture"
-            style={{ borderRadius: '50%', width: '100%', maxWidth: 350 }}
-          />
+          <StyledPaper sx={{ borderRadius: '50%' }}>
+            <Image
+              src={IMAGES.profile}
+              alt="Profile Picture"
+              width={350}
+              height={350}
+            />
+          </StyledPaper>
         </Box>
         <Box
           sx={{
