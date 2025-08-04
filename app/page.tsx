@@ -3,6 +3,7 @@ import { Box } from '@mui/material'
 
 import Footer from '@components/Footer'
 import Navigation from '@components/Navigation'
+import Hero from '@features/Hero'
 import History from '@features/History'
 import Introduction from '@features/Introduction'
 import Tools from '@features/Tools'
@@ -18,6 +19,7 @@ const Home = () => {
 
       <Box>
         <Navigation />
+        <Hero />
         <Introduction />
         <Tools />
         <History />

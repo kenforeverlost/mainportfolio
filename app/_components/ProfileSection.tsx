@@ -1,47 +1,30 @@
 import React from 'react'
-import { Container, Stack, Typography } from '@mui/material'
+import { Stack, Typography } from '@mui/material'
 
-interface Props {
-  id: string
-  title: string
-  caption?: string
-  backgroundColor?: string
-  children: React.ReactNode
-}
+import Section from '@components/container/Section'
+import { ProfileSectionProps } from '@lib/types'
 
 const ProfileSection = ({
   id,
   title,
-  caption,
+  subtitle,
+  description,
   backgroundColor,
   children,
-}: Props) => {
+}: ProfileSectionProps) => {
   return (
-    <Stack
-      sx={{
-        background: backgroundColor ?? 'transparent',
-        width: 1,
-      }}
-    >
-      <Container
-        id={id}
-        maxWidth="lg"
-        sx={{
-          paddingX: 3,
-          paddingY: 7,
-        }}
-      >
-        <Stack sx={{ direction: 'column', gap: 5 }}>
-          <Stack sx={{ direction: 'column', gap: 2 }}>
-            <Typography variant="h4" fontWeight={'bold'}>
-              {title}
-            </Typography>
-            {caption && <Typography variant="body1">{caption}</Typography>}
-          </Stack>
-          {children}
-        </Stack>
-      </Container>
-    </Stack>
+    <Section id={id} backgroundColor={backgroundColor}>
+      <Stack sx={{ direction: 'column', gap: 2 }}>
+        <Typography variant="h2">{title}</Typography>
+        {subtitle && (
+          <Typography variant="h3" color="secondary">
+            {subtitle}
+          </Typography>
+        )}
+        {description && <Typography variant="body1">{description}</Typography>}
+      </Stack>
+      {children}
+    </Section>
   )
 }
 

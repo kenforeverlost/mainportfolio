@@ -1,10 +1,21 @@
-import { Box, Link, List, ListItem, Stack, Typography } from '@mui/material'
 import Image from 'next/image'
+import {
+  Box,
+  Grid,
+  Link,
+  List,
+  ListItem,
+  Stack,
+  Typography,
+} from '@mui/material'
+
+import StyledChip from '@components/StyledChip'
+import StyledPaper from '@components/StyledPaper'
 
 const HistoryWrap = ({
   company,
   companyImage,
-  hightlights,
+  highlights,
   mainTools,
 }: {
   company: { name: string; position: string; years: string }
@@ -15,80 +26,85 @@ const HistoryWrap = ({
     width: number
     height: number
   }
-  hightlights: string[]
+  highlights: string[]
   mainTools: string[]
 }) => {
   return (
-    <Stack
+    <StyledPaper
       sx={{
-        display: 'flex',
-        flexDirection: { xs: 'column', md: 'row' },
-        gap: 5,
-        alignItems: 'center',
+        paddingX: 4,
+        paddingY: 4,
+        width: 1,
       }}
     >
-      <Stack
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          textAlign: 'center',
-          gap: 3,
-          padding: 2,
-          width: { xs: 1, md: 4 / 12 },
-        }}
-      >
-        <Link href={companyImage.link} target="_blank">
-          <Image
-            src={companyImage.src || '/placeholder.svg'}
-            alt={companyImage.alt}
-            width={companyImage.width}
-            height={companyImage.height}
-            style={{ maxWidth: 220, height: 'auto' }}
-          />
-        </Link>
-        <Stack>
-          <Typography variant="h5" fontWeight="bold">
-            {company.position}
-          </Typography>
-          <Typography variant="h6" fontWeight={400}>
-            {company.name}
-          </Typography>
-          <Typography variant="body1" sx={{ fontStyle: 'italic' }}>
-            {company.years}
-          </Typography>
-        </Stack>
-      </Stack>
-
-      <Stack
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 3,
-          width: { xs: 1, md: 8 / 12 },
-        }}
-      >
-        <Stack>
-          <Typography variant="body1" fontWeight="bold">
-            Highlights
-          </Typography>
-          <List sx={{ listStyleType: 'disc', padding: 0, marginLeft: 0 }}>
-            {hightlights.map((highlight, index) => (
-              <ListItem
+      <Grid container spacing={2}>
+        <Grid
+          size={{ xs: 12, md: 4 }}
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            textAlign: 'center',
+            gap: 4,
+            padding: 2,
+          }}
+        >
+          <Link href={companyImage.link} target="_blank">
+            <Image
+              src={companyImage.src || '/placeholder.svg'}
+              alt={companyImage.alt}
+              width={companyImage.width}
+              height={companyImage.height}
+              style={{ maxWidth: 220, height: 'auto' }}
+            />
+          </Link>
+          <Stack>
+            <Typography variant="h4" color="primary">
+              {company.position}
+            </Typography>
+            <Typography variant="body1">{company.name}</Typography>
+            <Typography variant="body2" sx={{ fontStyle: 'italic' }}>
+              {company.years}
+            </Typography>
+          </Stack>
+        </Grid>
+        <Grid size={{ xs: 12, md: 8 }}>
+          <Stack>
+            <List sx={{ listStyleType: 'disc', padding: 0, marginLeft: 0 }}>
+              {highlights.map((highlight, index) => (
+                <ListItem
+                  key={index}
+                  disableGutters
+                  sx={{
+                    color: 'secondary',
+                    display: 'list-item',
+                    listStylePosition: 'inside',
+                  }}
+                >
+                  {highlight}
+                </ListItem>
+              ))}
+            </List>
+          </Stack>
+        </Grid>
+        <Grid
+          size={12}
+          sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}
+        >
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+            {mainTools.map((tool, index) => (
+              <StyledChip
                 key={index}
-                disableGutters
-                sx={{ display: 'list-item', listStylePosition: 'inside' }}
-              >
-                {highlight}
-              </ListItem>
+                variant="outlined"
+                color="secondary"
+                label={tool}
+              />
             ))}
-          </List>
-        </Stack>
-        <Typography variant="body1">
-          <b>Main Tools:</b> {mainTools.join(', ')}
-        </Typography>
-      </Stack>
-    </Stack>
+          </Box>
+        </Grid>
+      </Grid>
+    </StyledPaper>
   )
 }
 

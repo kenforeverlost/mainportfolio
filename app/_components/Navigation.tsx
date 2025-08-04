@@ -19,29 +19,13 @@ import {
 } from '@mui/material'
 
 import { NAVIGATION_MENU } from '@lib/constants'
+import { scrollToSection } from '@lib/helpers'
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      const paddingTop = 60
-      const elementPosition = element.offsetTop - paddingTop
-
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth',
-      })
-    }
-
-    if (isMenuOpen) {
-      setIsMenuOpen(false)
-    }
-  }
 
   return (
     <Box
@@ -64,9 +48,21 @@ const Navigation = () => {
           }}
         >
           {isMobile && <Typography>&nbsp;</Typography>}
-          <Typography variant="h5" color="text.secondary" fontWeight={'bold'}>
-            KDLP
-          </Typography>
+          <Button
+            variant="text"
+            onClick={() => {
+              scrollToSection('home', () => {
+                if (isMenuOpen) {
+                  setIsMenuOpen(false)
+                }
+              })
+            }}
+            sx={{ cursor: 'pointer' }}
+          >
+            <Typography variant="h3" color="text.secondary">
+              KDLP
+            </Typography>
+          </Button>
           {isMobile ? (
             <IconButton
               size="large"
