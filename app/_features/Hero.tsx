@@ -19,7 +19,7 @@ const Hero = () => {
       >
         <Box
           sx={{
-            display: 'flex',
+            display: { xs: 'none', md: 'flex' },
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
@@ -69,6 +69,22 @@ const Hero = () => {
               Hello! I go by Kendrick
             </Typography>
           </Stack>
+          <Box
+            sx={{
+              display: { xs: 'flex', md: 'none' },
+              flexDirection: 'row',
+              justifyContent: 'center',
+            }}
+          >
+            <StyledPaper sx={{ borderRadius: '50%' }}>
+              <Image
+                src={IMAGES.profile}
+                alt="Profile Picture"
+                width={450}
+                height={450}
+              />
+            </StyledPaper>
+          </Box>
           <Typography variant="body1">
             I am a software engineer based in{' '}
             <Typography component="span" color="secondary" fontWeight={700}>
