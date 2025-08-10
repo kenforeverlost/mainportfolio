@@ -82,7 +82,11 @@ const Navigation = () => {
                   key={key}
                   variant="text"
                   onClick={() => {
-                    scrollToSection(item.section)
+                    scrollToSection(item.section, () => {
+                      if (isMenuOpen) {
+                        setIsMenuOpen(false)
+                      }
+                    })
                   }}
                   sx={{ cursor: 'pointer' }}
                 >
@@ -100,7 +104,11 @@ const Navigation = () => {
               <ListItem
                 key={index}
                 onClick={() => {
-                  scrollToSection(item.section)
+                  scrollToSection(item.section, () => {
+                    if (isMenuOpen) {
+                      setIsMenuOpen(false)
+                    }
+                  })
                 }}
               >
                 <ListItemButton sx={{ cursor: 'pointer' }}>

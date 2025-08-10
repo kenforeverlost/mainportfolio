@@ -23,6 +23,7 @@ import {
   GiStarsStack,
   GiTiedScroll,
 } from 'react-icons/gi'
+import { HiOutlineMail } from 'react-icons/hi'
 import {
   SiCplusplus,
   SiCss3,
@@ -33,7 +34,9 @@ import {
   SiNextdotjs,
   SiNodedotjs,
   SiPhp,
+  SiPostgresql,
   SiProgress,
+  SiSanity,
   SiSupabase,
   SiTailwindcss,
   SiTypescript,
@@ -188,6 +191,12 @@ export const SKILLS = [
     company: ['lvr'],
   },
   {
+    name: 'React Native',
+    category: 'Framework',
+    icon: <FaReact />,
+    company: ['lvr'],
+  },
+  {
     name: 'Bootstrap',
     category: 'Framework',
     icon: <DiBootstrap />,
@@ -227,6 +236,18 @@ export const SKILLS = [
     icon: <SiHasura />,
     company: ['lvr'],
   },
+  {
+    name: 'PostgreSQL',
+    category: 'Platform',
+    icon: <SiPostgresql />,
+    company: ['lvr'],
+  },
+  {
+    name: 'Sanity',
+    category: 'Platform',
+    icon: <SiSanity />,
+    company: ['lvr'],
+  },
 ]
 
 export const WORK_EXPERIENCE = [
@@ -243,12 +264,13 @@ export const WORK_EXPERIENCE = [
     },
     website: 'https://www.lasvegasrealtor.com/',
     highlights: [
-      'Refined and enhanced the LVR member web portal to increase membership engagement and accessibility of association news',
-      'Integrated several web APIs including the DocuSign API for membership applications and the SendGrid API for automated email notices',
-      'Managed the digitization of the member check-in process for verifying registration and tracking attendance at events to better efficiency',
-      'Built administration tools to aid staff in helping members with daily tasks',
-      'Migrated components from the legacy member web portal stack to modern solutions such as Next.js and Sanity',
-      'Provided support to the development of the member portal mobile app',
+      'Built and deployed a forms platform that reduced manual paperwork and processed over 300 digital submissions in the first month',
+      'Enhanced the member web portal UI/UX, increasing engagement and improving access to association resources.',
+      'Developed internal admin tools that streamlined workflows for multiple member-facing departments.',
+      'Integrated APIs, including DocuSign for digital applications and SendGrid for automated email notifications.',
+      'Digitized the member event check-in process, improving operational efficiency and data tracking.',
+      'Modernized legacy web portal components using Next.js and Supabase, improving performance and maintainability.',
+      'Contributed to development efforts for the member mobile app, ensuring consistency across platforms.',
     ],
     tools: [
       'PHP',
@@ -275,17 +297,22 @@ export const WORK_EXPERIENCE = [
     },
     website: 'https://www.fdm4.com/',
     highlights: [
-      'Strengthened the quality of the ERP, WMS, and E-Commerce software solutions through custom modifications and bug fixes',
-      'Collaborated directly with clients on-site in assisting with questions and addressing issues to build rapport and confidence with the company',
-      "Led a live product upgrade to upkeep the client's software version",
-      'Counseled new hires on knowing company procedures, learning programming tools, and understanding the software',
-      'Produced code reviews on the work of other team members and assumed team lead duties when needed',
+      'Improved ERP, WMS, and E-Commerce software through custom feature development and critical bug fixes.',
+      'Delivered on-site support to clients, resolving issues and building long-term confidence in the product.',
+      'Led live software version upgrades, minimizing downtime and ensuring smooth transitions.',
+      'Mentored junior developers on company procedures and the OpenEdge ABL programming stack, accelerating their onboarding.',
+      'Conducted code reviews and assumed lead developer responsibilities when needed.',
     ],
     tools: ['Openedge ABL', 'JavaScript', 'jQuery', 'HTML', 'CSS', 'Bootstrap'],
   },
 ]
 
 export const OTHER_LINKS = [
+  {
+    name: 'kendrickdelapena@gmail.com',
+    url: 'mailto:kendrickdelapena@gmail.com',
+    icon: <HiOutlineMail />,
+  },
   {
     name: 'LinkedIn',
     url: 'https://www.linkedin.com/in/kendrickDLP',
@@ -295,10 +322,5 @@ export const OTHER_LINKS = [
     name: 'GitHub',
     url: 'https://github.com/kenforeverlost',
     icon: <FaGithub />,
-  },
-  {
-    name: 'Projects',
-    url: 'https://kdlp.dev/',
-    icon: <FaProjectDiagram />,
   },
 ]

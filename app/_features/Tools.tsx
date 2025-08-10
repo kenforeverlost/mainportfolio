@@ -13,9 +13,16 @@ const Tools = () => {
       backgroundColor="background.default"
     >
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
-        <Grid container spacing={4}>
+        <Grid
+          container
+          spacing={4}
+          sx={{
+            maxWidth: { xs: '352px', sm: '544px', md: '736px', lg: '1120px' },
+            margin: '0 auto',
+          }}
+        >
           {SKILLS.map((item, index) => (
-            <Grid size={{ xs: 6, sm: 4, lg: 3 }} key={index}>
+            <Grid size={{ xs: 6, sm: 4, md: 3, lg: 2 }} key={index}>
               <Box
                 sx={{
                   display: 'flex',

@@ -9,11 +9,11 @@ import { HIGHLIGHTS, IMAGES } from '@lib/constants'
 
 const Hero = () => {
   return (
-    <Section id={'home'} wholeScreen={true}>
+    <Section id={'home'}>
       <Box
         sx={{
           display: 'flex',
-          flexDirection: { xs: 'column', md: 'row' },
+          flexDirection: { xs: 'column-reverse', md: 'row' },
           gap: 8,
         }}
       >
