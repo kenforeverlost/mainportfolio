@@ -4,6 +4,18 @@ export interface MailFormType {
   message: string
 }
 
+export interface ProjectsType {
+  title: string
+  subtitle: string
+  timeframe: string
+  category: string
+  description: string
+  highlights: string[]
+  impact?: string
+  url?: string
+  tools: string[]
+}
+
 export interface SectionProps {
   id: string
   backgroundColor?: string

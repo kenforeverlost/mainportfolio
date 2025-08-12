@@ -20,12 +20,16 @@ import {
 
 import { NAVIGATION_MENU } from '@lib/constants'
 import { scrollToSection } from '@lib/helpers'
+import { usePathname } from 'next/navigation'
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const theme = useTheme()
+  const pathname = usePathname()
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+
+  // TODO: Change links if not on main page
 
   return (
     <Box

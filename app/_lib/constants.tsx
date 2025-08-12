@@ -324,3 +324,95 @@ export const OTHER_LINKS = [
     icon: <FaGithub />,
   },
 ]
+
+export const PROJECTS = [
+  {
+    title: 'Application Digitization',
+    subtitle: 'Web-based application process with DocuSign integration',
+    timeframe: 'Completed in 2021, expanded through 2023',
+    category: 'Work',
+    description:
+      'Replaced the paper-based membership application process with a streamlined web-based workflow. The system auto-fills member data from an external database and routes forms through DocuSign for securing signing. The same approach was later adapted other processes such as Board of Directors applications and Professional Standards case submissions.',
+    highlights: [
+      'Integrated DocuSign API for digital signing and status updates',
+      'Implemented a webhook for tracking and secure document storage',
+      'Built admin tools for monitoring and managing applications',
+    ],
+    impact:
+      'Significantly reduced application turnaround times, minimized clerical errors, and improved transparency for both staff and applicants',
+    tools: ['PHP', 'MySQL', 'JavaScript', 'HTML', 'CSS'],
+  },
+  {
+    title: 'Forms System',
+    subtitle: 'Hub for digitally signing and submitting association forms',
+    timeframe: 'Started in 2024, launched in 2025',
+    category: 'Work',
+    description:
+      'Co-developed a digital forms system that allowed for submitting association documents online. The system included a visual template builder that lets staff map inputs onto PDFs, reducing setup time for future forms. It mimics the signing flow of DocuSign and is optimized for mobile users.',
+    highlights: [
+      'Collaborated on the design of the architecture and workflow',
+      'Built a drag-and-drop PDF template mapper for dynamic form creation',
+      'Integrated AI validation to confirm the authenticity of required documents',
+    ],
+    impact:
+      'Increased accessibility and processing efficiency, with over 300 submissions in the first month',
+    tools: ['Next.js', 'TypeScript', 'React', 'Supabase', 'Material UI'],
+  },
+  {
+    title: 'Member Check-In System',
+    subtitle:
+      'Custom-built event attendance system for weekly classes and meetings',
+    timeframe: 'Completed in 2021, migrated tech stack in 2022',
+    category: 'Work',
+    description:
+      'Designed and developed a digital check-in system for attendance tracking at association events. The system replaced the manual sign-in process with badge-scanning linked to a registration database. It was originally created in PHP and later migrated to Next.js and Supabase for better improved maintainability and user experience.',
+    highlights: [
+      'Built an end-to-end system in both PHP and MySQL and later Next.js and Supabase',
+      'Implemented registration validation, real-time updates, and admin tools',
+      'Designed a user interface for staff to manage check-ins and generate attendance reports',
+    ],
+    impact:
+      'Streamlined event operations, reduced human error, and attracted interest from other associations exploring similar modernization',
+    tools: [
+      'PHP',
+      'MySQL',
+      'SQL Server',
+      'JavaScript',
+      'Next.js',
+      'TypeScript',
+      'React',
+      'Supabase',
+      'Tailwind CSS',
+    ],
+  },
+  {
+    title: 'Photography Portfolio',
+    subtitle: 'PHP web gallery showcasing portrait photography',
+    timeframe: 'Started in 2019, launched in 2020',
+    category: 'Personal',
+    description:
+      'Created a simple portfolio site to showcase my portrait photography, linking my creative hobby to my development experience. Hosted on traditional cPanel, the site reflects legacy development methods and deepened my understanding of raw PHP',
+    highlights: [
+      'Designed a clean and responsive portrait photography gallery',
+      'Built a PHP-powered contact form for direct email inquiries',
+    ],
+    url: 'https://www.foreverlostphoto.com',
+    tools: ['PHP', 'JavaScript', 'HTML', 'CSS'],
+  },
+  {
+    title: 'Wedding Website',
+    subtitle:
+      'Personalized wedding website with a modern UI and RSVP functionality',
+    timeframe: 'Completed in 2024, updated through 2025',
+    category: 'Personal',
+    description:
+      'Developed a custom wedding website in place of platforms like WithJoy or Zola. The site included RSVP functionality, real-time countdown, and event information pages — designed to be elegant and easy for all users.',
+    highlights: [
+      'Built a digital RSVP form with edit capabilities and guest-specific information',
+      'Implemented eye-catching features including a live countdown timer and visual story timeline',
+      'Delivered a modern, intuitive UI accessible to all tech levels in mind',
+    ],
+    url: 'https://www.forevercharred.com',
+    tools: ['Next.js', 'TypeScript', 'React', 'Supabase', 'Tailwind CSS'],
+  },
+]
