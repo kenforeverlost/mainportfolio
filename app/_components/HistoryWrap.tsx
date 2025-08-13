@@ -1,15 +1,10 @@
 import Image from 'next/image'
-import {
-  Box,
-  Grid,
-  Link,
-  List,
-  ListItem,
-  Stack,
-  Typography,
-} from '@mui/material'
+import { Box, Grid, Link, ListItem, Stack, Typography } from '@mui/material'
+import { VscTools } from 'react-icons/vsc'
 
+import CardAccordion from '@components/CardAccordion'
 import StyledChip from '@components/StyledChip'
+import StyledList from '@components/StyledList'
 import StyledPaper from '@components/StyledPaper'
 
 const HistoryWrap = ({
@@ -39,6 +34,7 @@ const HistoryWrap = ({
     >
       <Grid container spacing={2}>
         <Grid
+          order={1}
           size={{ xs: 12, md: 4 }}
           sx={{
             display: 'flex',
@@ -69,9 +65,13 @@ const HistoryWrap = ({
             </Typography>
           </Stack>
         </Grid>
-        <Grid size={{ xs: 12, md: 8 }}>
-          <Stack>
-            <List sx={{ listStyleType: 'disc', padding: 0, marginLeft: 0 }}>
+        <Grid
+          order={{ xs: 2, md: 2 }}
+          size={{ xs: 12, md: 8 }}
+          marginBottom={{ xs: 2, md: 0 }}
+        >
+          <CardAccordion>
+            <StyledList>
               {highlights.map((highlight, index) => (
                 <ListItem
                   key={index}
@@ -85,14 +85,31 @@ const HistoryWrap = ({
                   {highlight}
                 </ListItem>
               ))}
-            </List>
-          </Stack>
+            </StyledList>
+          </CardAccordion>
         </Grid>
         <Grid
-          size={12}
-          sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}
+          order={{ xs: 3, md: 3 }}
+          size={{ xs: 12, md: 12 }}
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            gap: 2,
+          }}
         >
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+          <Box
+            sx={{
+              color: 'primary.main',
+              display: 'flex',
+              flexWrap: 'wrap',
+              alignItems: 'center',
+              gap: 1,
+            }}
+          >
+            <Box component={'span'} sx={{ marginRight: 0.5 }}>
+              <VscTools fontSize={'1.625rem'} />
+            </Box>
             {mainTools.map((tool, index) => (
               <StyledChip
                 key={index}

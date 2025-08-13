@@ -14,6 +14,7 @@ import {
   FaProjectDiagram,
   FaReact,
   FaToolbox,
+  FaTools,
 } from 'react-icons/fa'
 import { FaCode, FaComputer } from 'react-icons/fa6'
 import {
@@ -52,7 +53,7 @@ export const NAVIGATION_MENU = [
   {
     label: 'Skills',
     section: 'skills',
-    icon: <FaToolbox />,
+    icon: <FaTools />,
   },
   {
     label: 'Experience',

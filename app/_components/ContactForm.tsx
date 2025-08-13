@@ -196,7 +196,7 @@ const ContactForm = () => {
             variant="contained"
             color="primary"
             disabled={mailFormProcessing}
-            startIcon={
+            endIcon={
               mailFormProcessing ? (
                 <CircularProgress size={20} />
               ) : (

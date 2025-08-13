@@ -15,24 +15,41 @@ const SkillWrap = ({ skillName, type, icon }: Props) => {
         paddingX: 1,
         paddingY: 2,
         width: 1,
-        maxWidth: 160,
+        maxWidth: { xs: 120, sm: 160 },
       }}
     >
       <Box
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          gap: 2,
+          gap: { xs: 1, sm: 2 },
           justifyContent: 'center',
           alignItems: 'center',
         }}
       >
-        <Box sx={{ fontSize: '3rem', color: 'secondary.main' }}>{icon}</Box>
+        <Box
+          sx={{
+            fontSize: { xs: '2rem', sm: '3rem' },
+            color: 'secondary.main',
+          }}
+        >
+          {icon}
+        </Box>
         <Stack sx={{ textAlign: 'center' }}>
-          <Typography variant="body1" color="primary.main" fontWeight="bold">
+          <Typography
+            variant="body1"
+            fontSize={{ xs: '14px', sm: '16px' }}
+            color="primary.main"
+            fontWeight="bold"
+          >
             {skillName}
           </Typography>
-          <Typography variant="body2" color="primary.main" fontStyle="italic">
+          <Typography
+            variant="body2"
+            fontSize={{ xs: '12px', sm: '14px' }}
+            color="primary.main"
+            fontStyle="italic"
+          >
             {type}
           </Typography>
         </Stack>

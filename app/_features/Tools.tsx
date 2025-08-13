@@ -15,9 +15,9 @@ const Tools = () => {
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
         <Grid
           container
-          spacing={4}
+          spacing={{ xs: 2, sm: 4 }}
           sx={{
-            maxWidth: { xs: '352px', sm: '544px', md: '736px', lg: '1120px' },
+            maxWidth: { xs: '272px', sm: '544px', md: '736px', lg: '1120px' },
             margin: '0 auto',
           }}
         >
