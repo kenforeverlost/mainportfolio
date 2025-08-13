@@ -38,7 +38,7 @@ export default function ProjectsAll() {
           }}
         >
           <SegmentedButton
-            label={['All', 'Work', 'Personal']}
+            label={['All', 'Work', 'Hobby']}
             onChange={handleChange}
           />
         </Box>

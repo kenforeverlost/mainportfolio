@@ -7,46 +7,38 @@ import {
   ToggleButtonGroupProps,
 } from '@mui/material'
 
-const StyledButtonGroup = styled((props: ToggleButtonGroupProps) => (
+const StyledToggleButtonGroup = styled((props: ToggleButtonGroupProps) => (
   <ToggleButtonGroup {...props} />
 ))(({ theme }) => ({
-  backgroundColor: 'primary',
   borderWidth: '1px',
   borderStyle: 'solid',
-  borderColor: 'primary',
-  borderRadius: '50px',
+  borderColor: theme.palette.primary.main,
+  borderRadius: '14px',
   overflow: 'hidden',
-  gap: 2,
+  gap: 0,
+  padding: '2px',
   '& .MuiToggleButton-root': {
-    border: '1px solid transparent',
-    paddingLeft: '32px',
-    paddingRight: '32px',
-    /*
-      backgroundColor: 'white !important',
-      border: '1px solid transparent !important',
-      color: '#ffffff',
-      borderRadius: '15px',
-      fontWeight: 500,
-      maxHeight: '36px',
-      '&:hover': {
-        // backgroundColor: `${theme.palette.primary.light} !important`,
-        textDecoration: 'underline',
-      },
-      padding: '0px 12px',
-      */
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    borderColor: 'transparent',
+    borderRadius: '12px',
+    minWidth: '85px',
+    padding: '4px 18px',
+    '&:hover': {
+      backgroundColor: 'transparent',
+      color: theme.palette.primary.main,
+    },
   },
-  '& .Mui-selected': {
-    /*
-      backgroundColor: `${theme.vars.palette.primary.main} !important`,
-      border: '1px solid rgba(0, 0, 0, 0.12) !important',
-      color: 'white !important',
-      borderRadius: '15px',
-      '&:hover': {
-        backgroundColor: `${theme.palette.primary.dark} !important`,
-        textDecoration: 'underline',
-      },
-      */
+  '& .MuiToggleButton-root.Mui-selected': {
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.primary.contrastText,
+    boxShadow: '2px 1px 3px rgba(0,0,0,0.4)',
+    backdropFilter: 'blur(8px)',
+    '&:hover': {
+      backgroundColor: theme.palette.primary.dark,
+      color: theme.palette.primary.contrastText,
+    },
   },
 }))
 
-export default StyledButtonGroup
+export default StyledToggleButtonGroup

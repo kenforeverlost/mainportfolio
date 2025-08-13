@@ -1,13 +1,13 @@
 'use client'
 
 import React, { useState } from 'react'
-import { ToggleButtonGroup, ToggleButton } from '@mui/material'
+import { Divider, ToggleButton } from '@mui/material'
 
 import StyledToggleButtonGroup from '@components/StyledToggleButtonGroup'
 
 interface SegmentedButtonProps {
   label: string[]
-  onChange: (value: string) => void
+  onChange?: (value: string) => void
 }
 
 const SegmentedButton = ({ label, onChange }: SegmentedButtonProps) => {
@@ -17,9 +17,36 @@ const SegmentedButton = ({ label, onChange }: SegmentedButtonProps) => {
     event: React.MouseEvent<HTMLElement>,
     newValue: string,
   ) => {
-    setChoiceValue(newValue)
-    onChange(newValue)
+    if (newValue !== null) {
+      setChoiceValue(newValue)
+
+      if (onChange) {
+        onChange(newValue)
+      }
+    }
   }
+
+  const renderArray = label.flatMap((item, index) => {
+    if (index !== 0) {
+      return [
+        <Divider
+          key={`${index}-divider`}
+          flexItem
+          orientation="vertical"
+          sx={{ marginX: 0, marginY: 1.0 }}
+        />,
+        <ToggleButton key={index} value={item}>
+          {item}
+        </ToggleButton>,
+      ]
+    } else {
+      return (
+        <ToggleButton key={index} value={item}>
+          {item}
+        </ToggleButton>
+      )
+    }
+  })
 
   return (
     <StyledToggleButtonGroup
@@ -29,9 +56,7 @@ const SegmentedButton = ({ label, onChange }: SegmentedButtonProps) => {
       onChange={handleChange}
       aria-label="SegmentedButton"
     >
-      {label.map((item, index) => (
-        <ToggleButton value={item}>{item}</ToggleButton>
-      ))}
+      {renderArray}
     </StyledToggleButtonGroup>
   )
 }

@@ -390,7 +390,7 @@ export const PROJECTS = [
     title: 'Photography Portfolio',
     subtitle: 'PHP web gallery showcasing portrait photography',
     timeframe: 'Started in 2019, launched in 2020',
-    category: 'Personal',
+    category: 'Hobby',
     description:
       'Created a simple portfolio site to showcase my portrait photography, linking my creative hobby to my development experience. Hosted on traditional cPanel, the site reflects legacy development methods and deepened my understanding of raw PHP',
     highlights: [
@@ -405,7 +405,7 @@ export const PROJECTS = [
     subtitle:
       'Personalized wedding website with a modern UI and RSVP functionality',
     timeframe: 'Completed in 2024, updated through 2025',
-    category: 'Personal',
+    category: 'Hobby',
     description:
       'Developed a custom wedding website in place of platforms like WithJoy or Zola. The site included RSVP functionality, real-time countdown, and event information pages — designed to be elegant and easy for all users.',
     highlights: [
