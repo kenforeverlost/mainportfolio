@@ -7,9 +7,9 @@ import { hexToRgbStr } from '@lib/helpers'
 
 const StyledButton = styled((props: ButtonProps) => (
   <Button disableElevation {...props} />
-))(({ theme, variant }) => ({
-  padding: '12px 24px',
-  fontSize: '1rem', // 16px
+))(({ theme, variant, size }) => ({
+  padding: size === 'small' ? '8px 20px' : '12px 24px',
+  fontSize: size === 'small' ? '0.875rem' : '1rem', // 14px : 16px
   letterSpacing: '0.05em',
   textTransform: 'uppercase',
   borderWidth: '1px',
