@@ -6,6 +6,7 @@ import CardAccordion from '@components/CardAccordion'
 import StyledChip from '@components/StyledChip'
 import StyledList from '@components/StyledList'
 import StyledPaper from '@components/StyledPaper'
+import ToolsChipWrap from './ToolsChipWrap'
 
 const HistoryWrap = ({
   company,
@@ -98,7 +99,7 @@ const HistoryWrap = ({
             gap: 2,
           }}
         >
-          <Box
+          <ToolsChipWrap
             sx={{
               color: 'primary.main',
               display: 'flex',
@@ -107,9 +108,6 @@ const HistoryWrap = ({
               gap: 1,
             }}
           >
-            <Box component={'span'} sx={{ marginRight: 0.5 }}>
-              <VscTools fontSize={'1.625rem'} />
-            </Box>
             {mainTools.map((tool, index) => (
               <StyledChip
                 key={index}
@@ -118,7 +116,7 @@ const HistoryWrap = ({
                 label={tool}
               />
             ))}
-          </Box>
+          </ToolsChipWrap>
         </Grid>
       </Grid>
     </StyledPaper>

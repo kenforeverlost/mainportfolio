@@ -1,21 +1,34 @@
 'use client'
 
 import React, { use } from 'react'
-import { Box, Portal, Typography } from '@mui/material'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { VscChromeClose } from 'react-icons/vsc'
+import {
+  Box,
+  Divider,
+  IconButton,
+  ListItem,
+  Portal,
+  Stack,
+  Typography,
+} from '@mui/material'
 
-import RouterBackButton from '@components/RouterBackButton'
+import StyledChip from '@components/StyledChip'
+import StyledList from '@components/StyledList'
 import StyledModal from '@components/StyledModal'
+import ToolsChipWrap from '@components/ToolsChipWrap'
 import { PROJECTS } from '@lib/constants'
-import StyledChip from '@/app/_components/StyledChip'
 
-type ProjectsSlugModalProps = { params: Promise<{ slug: string }> }
+interface ProjectsSlugModalProps {
+  params: Promise<{ slug: string }>
+}
 
 const ProjectsSlugModal = ({ params }: ProjectsSlugModalProps) => {
   const { slug } = use(params)
 
   const projectData = PROJECTS.find(
-    (item) => item.title.toLocaleLowerCase().replaceAll(' ', '') === slug,
+    (item) => item.title.toLocaleLowerCase().replaceAll(' ', '-') === slug,
   )
 
   const router = useRouter()
@@ -23,44 +36,144 @@ const ProjectsSlugModal = ({ params }: ProjectsSlugModalProps) => {
     router.back()
   }
 
-  // TODO: Format and Style. Also add loading
-
   return (
     <Portal>
-      <StyledModal open onClose={handleClose}>
+      <StyledModal
+        open
+        onClose={handleClose}
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'center',
+          alignItems: 'center',
+          padding: 4,
+        }}
+      >
         <Box
           sx={{
+            position: 'relative',
             backgroundColor: 'white',
-            padding: 4,
+            paddingY: 4,
             maxWidth: 600,
-            margin: '100px auto',
+            maxHeight: '100dvh',
+            margin: '0 auto',
             borderRadius: 2,
           }}
         >
-          <Typography variant="h4">{projectData?.title}</Typography>
-          <Typography variant="h5">{projectData?.subtitle}</Typography>
-          <Typography variant="h6">{projectData?.timeframe}</Typography>
-          <Typography variant="h6">{projectData?.category}</Typography>
-          <Typography variant="body1">{projectData?.description}</Typography>
-          <Typography variant="body1" sx={{ marginBottom: 4 }}>
-            This is a modal view of the project details.
-          </Typography>
-          {projectData && (
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-              {projectData.tools.map((tool, index) => {
-                return (
-                  <StyledChip
-                    key={index}
-                    size="small"
-                    variant="outlined"
-                    color="secondary"
-                    label={tool}
-                  />
-                )
-              })}
-            </Box>
+          <IconButton
+            onClick={handleClose}
+            sx={{ position: 'absolute', top: 0, right: 0, padding: 2 }}
+          >
+            <VscChromeClose />
+          </IconButton>
+          {projectData ? (
+            <Stack sx={{ height: 1, overflow: 'auto' }}>
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 2,
+                  paddingX: 4,
+                }}
+              >
+                <Stack spacing={1}>
+                  <Typography variant="h2">{projectData.title}</Typography>
+                  <Typography variant="h6">{projectData.subtitle}</Typography>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      flexDirection: { xs: 'column-reverse', md: 'row' },
+                      justifyContent: { xs: 'flex-start', md: 'space-between' },
+                      alignItems: { xs: 'left', md: 'center' },
+                      gap: 2,
+                    }}
+                  >
+                    <StyledChip
+                      variant="filled"
+                      color="secondary"
+                      label={projectData.category}
+                    />
+                    <Typography variant="body1" fontStyle={'italic'}>
+                      {projectData.timeframe}
+                    </Typography>
+                  </Box>
+                </Stack>
+                <Typography variant="body1">
+                  {projectData.description}
+                </Typography>
+              </Box>
+              <Divider sx={{ marginY: 2 }} />
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 2,
+                  paddingX: 4,
+                }}
+              >
+                <Box>
+                  <Typography variant="h5">Highlights</Typography>
+                  <StyledList>
+                    {projectData.highlights.map((highlight, index) => (
+                      <ListItem
+                        key={index}
+                        disableGutters
+                        sx={{
+                          color: 'secondary',
+                          display: 'list-item',
+                          listStylePosition: 'inside',
+                        }}
+                      >
+                        {highlight}
+                      </ListItem>
+                    ))}
+                  </StyledList>
+                </Box>
+                {projectData.impact && (
+                  <Stack spacing={1}>
+                    <Typography variant="h5">Impact</Typography>
+                    <Typography variant="body1">
+                      {projectData.impact}
+                    </Typography>
+                  </Stack>
+                )}
+                {projectData.url && (
+                  <Stack spacing={1}>
+                    <Typography variant="h5">Site</Typography>
+                    <Link href={projectData.url} target="_blank">
+                      {projectData.url}
+                    </Link>
+                  </Stack>
+                )}
+              </Box>
+              <Divider sx={{ marginY: 2 }} />
+              <ToolsChipWrap
+                sx={{
+                  color: 'primary.main',
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  alignItems: 'center',
+                  gap: 1,
+                  paddingX: 4,
+                }}
+              >
+                {projectData.tools.map((tool, index) => {
+                  return (
+                    <StyledChip
+                      key={index}
+                      variant="outlined"
+                      color="secondary"
+                      label={tool}
+                    />
+                  )
+                })}
+              </ToolsChipWrap>
+            </Stack>
+          ) : (
+            <Typography variant="h4">
+              Project details could not be found!
+            </Typography>
           )}
-          <RouterBackButton />
         </Box>
       </StyledModal>
     </Portal>

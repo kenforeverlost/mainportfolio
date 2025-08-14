@@ -1,8 +1,11 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { Box, Stack, Typography } from '@mui/material'
+import { FaPhone, FaProjectDiagram } from 'react-icons/fa'
 
 import ConnectButton from '@components/ConnectButton'
 import HighlightWrap from '@components/HighlightWrap'
+import StyledButton from '@components/StyledButton'
 import StyledPaper from '@components/StyledPaper'
 import Section from '@components/container/Section'
 import { HIGHLIGHTS, IMAGES } from '@lib/constants'
@@ -98,7 +101,31 @@ const Hero = () => {
             </Typography>
             .
           </Typography>
-          <ConnectButton />
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: { xs: 'column', sm: 'row' },
+              flexWrap: 'wrap',
+              gap: 2,
+            }}
+          >
+            <StyledButton
+              href="/projects"
+              component={Link}
+              variant="contained"
+              endIcon={<FaProjectDiagram />}
+              sx={{ width: { xs: 1, sm: 'fit-content' }, whiteSpace: 'nowrap' }}
+            >
+              See Projects
+            </StyledButton>
+            <ConnectButton
+              variant="outlined"
+              endIcon={<FaPhone />}
+              sx={{ width: { xs: 1, sm: 'fit-content' }, whiteSpace: 'nowrap' }}
+            >
+              Get in Touch
+            </ConnectButton>
+          </Box>
         </Box>
       </Box>
     </Section>

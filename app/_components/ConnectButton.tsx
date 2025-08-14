@@ -1,18 +1,19 @@
 'use client'
 
+import { ButtonProps } from '@mui/material'
+
 import StyledButton from '@components/StyledButton'
 import { scrollToSection } from '@lib/helpers'
 
-const ConnectButton = () => {
+const ConnectButton = (props: ButtonProps) => {
   return (
     <StyledButton
-      variant="contained"
-      sx={{ width: 'fit-content' }}
+      {...props}
       onClick={() => {
         scrollToSection('contact')
       }}
     >
-      Get in Touch
+      {props.children}
     </StyledButton>
   )
 }

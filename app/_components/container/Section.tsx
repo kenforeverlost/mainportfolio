@@ -12,6 +12,7 @@ const Section = ({
   return (
     <Box
       sx={{
+        position: 'relative',
         bgcolor: backgroundColor ?? 'transparent',
         width: 1,
         ...(wholeScreen && {
