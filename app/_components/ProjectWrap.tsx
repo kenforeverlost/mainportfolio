@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { Typography, Paper, Box, Stack, ButtonBase } from '@mui/material'
 
+import StyledPaper from '@components/StyledPaper'
 import { ProjectsType } from '@lib/types'
 
 const ProjectWrap = ({ project }: { project: ProjectsType }) => {
@@ -15,10 +16,10 @@ const ProjectWrap = ({ project }: { project: ProjectsType }) => {
     impact,
     tools,
   } = project
-  const slug = title.toLocaleLowerCase().replace(' ', '-')
+  const slug = title.toLocaleLowerCase().replaceAll(' ', '-')
 
   return (
-    <Paper
+    <StyledPaper
       sx={{
         width: 1,
         height: 1,
@@ -26,13 +27,20 @@ const ProjectWrap = ({ project }: { project: ProjectsType }) => {
         overflow: 'hidden',
       }}
     >
-      <ButtonBase href={`/projects/${slug}`} component={Link}>
+      <ButtonBase
+        href={`/projects/${slug}`}
+        component={Link}
+        sx={{
+          height: 1,
+        }}
+      >
         <Box
           sx={{
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'center',
+            justifyContent: 'flex-start',
             alignItems: 'center',
+            height: 1,
           }}
         >
           <img
@@ -55,7 +63,7 @@ const ProjectWrap = ({ project }: { project: ProjectsType }) => {
           </Stack>
         </Box>
       </ButtonBase>
-    </Paper>
+    </StyledPaper>
   )
 }
 

@@ -34,8 +34,8 @@ const MainBreadcrumbs = ({
             alignItems: 'center',
             color: 'text.primary',
             '& .MuiBreadcrumbs-separator': {
-              marginX: { xs: 0, sm: 1, md: 1 },
-              scale: { xs: 1, sm: 1 },
+              marginX: 1,
+              scale: 1,
               color: 'text.primary',
             },
           }}

@@ -5,6 +5,7 @@ import { ThemeProvider } from '@mui/material/styles'
 import '../globals.css'
 
 import defaultTheme from '@lib/theme'
+import Section from '@components/container/Section'
 
 type ProjectsLayoutProps = {
   modal: ReactNode
@@ -28,8 +29,10 @@ export default function ProjectsLayout({
         <ThemeProvider theme={defaultTheme}>
           <CssBaseline />
           {modal}
-          {children}
-          {all}
+          <Section id="projects-home">
+            {children}
+            {all}
+          </Section>
         </ThemeProvider>
       </body>
     </html>
