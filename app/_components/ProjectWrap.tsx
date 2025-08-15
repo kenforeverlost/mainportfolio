@@ -1,6 +1,7 @@
 import React from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
-import { Typography, Paper, Box, Stack, ButtonBase } from '@mui/material'
+import { Typography, Box, Stack, ButtonBase } from '@mui/material'
 
 import StyledPaper from '@components/StyledPaper'
 import { ProjectsType } from '@lib/types'
@@ -15,6 +16,7 @@ const ProjectWrap = ({ project }: { project: ProjectsType }) => {
     highlights,
     impact,
     tools,
+    image,
   } = project
   const slug = title.toLocaleLowerCase().replaceAll(' ', '-')
 
@@ -43,14 +45,23 @@ const ProjectWrap = ({ project }: { project: ProjectsType }) => {
             height: 1,
           }}
         >
-          <img
-            src="https://placehold.co/800x600"
-            alt="project-photo"
-            width={800}
-            height={600}
-            style={{ width: '100%', height: 'auto' }}
-          />
-          <Stack spacing={2} sx={{ padding: 4, paddingTop: 2 }}>
+          <Box
+            sx={{
+              overflow: 'hidden',
+              aspectRatio: '3/2',
+              width: '100%',
+              height: 'auto',
+              maxHeight: '300px',
+            }}
+          >
+            <Image
+              src={image[0]}
+              alt="Project Thumbnail"
+              width={450}
+              height={450}
+            />
+          </Box>
+          <Stack spacing={1} sx={{ paddingX: 4, paddingY: 2 }}>
             <Typography
               variant="h4"
               color="primary.main"
@@ -59,7 +70,12 @@ const ProjectWrap = ({ project }: { project: ProjectsType }) => {
             >
               {title}
             </Typography>
-            <Typography variant="body1">{subtitle}</Typography>
+            <Typography variant="body1">
+              {subtitle}.{' '}
+              <Typography component={'span'} color="secondary.main">
+                #{category}
+              </Typography>
+            </Typography>
           </Stack>
         </Box>
       </ButtonBase>

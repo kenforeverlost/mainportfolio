@@ -1,3 +1,5 @@
+import { ImageProps } from 'next/image'
+
 export interface MailFormType {
   name: string
   email: string
@@ -14,6 +16,7 @@ export interface ProjectsType {
   impact?: string
   url?: string
   tools: string[]
+  image: string[]
 }
 
 export interface SectionProps {

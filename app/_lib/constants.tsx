@@ -342,6 +342,7 @@ export const PROJECTS = [
     impact:
       'Significantly reduced application turnaround times, minimized clerical errors, and improved transparency for both staff and applicants',
     tools: ['PHP', 'MySQL', 'JavaScript', 'HTML', 'CSS'],
+    image: ['/project/application1.png'],
   },
   {
     title: 'Forms System',
@@ -358,6 +359,7 @@ export const PROJECTS = [
     impact:
       'Increased accessibility and processing efficiency, with over 300 submissions in the first month',
     tools: ['Next.js', 'TypeScript', 'React', 'Supabase', 'Material UI'],
+    image: ['/project/forms1.png'],
   },
   {
     title: 'Member Check-In System',
@@ -385,6 +387,7 @@ export const PROJECTS = [
       'Supabase',
       'Tailwind CSS',
     ],
+    image: ['/project/checkIn1.png'],
   },
   {
     title: 'Photography Portfolio',
@@ -399,11 +402,11 @@ export const PROJECTS = [
     ],
     url: 'https://www.foreverlostphoto.com',
     tools: ['PHP', 'JavaScript', 'HTML', 'CSS'],
+    image: ['/project/photography1.png'],
   },
   {
     title: 'Wedding Website',
-    subtitle:
-      'Personalized wedding website with a modern UI and RSVP functionality',
+    subtitle: 'Personalized site with a modern UI and RSVP functionality',
     timeframe: 'Completed in 2024, updated through 2025',
     category: 'Hobby',
     description:
@@ -415,5 +418,6 @@ export const PROJECTS = [
     ],
     url: 'https://www.forevercharred.com',
     tools: ['Next.js', 'TypeScript', 'React', 'Supabase', 'Tailwind CSS'],
+    image: ['/project/wedding1.JPG'],
   },
 ]
