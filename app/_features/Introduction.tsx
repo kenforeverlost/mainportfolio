@@ -30,11 +30,11 @@ const Introduction = () => {
             evolve — from the ever-changing skyline to the growing tech scene.
           </Typography>
           <Typography variant="body1">
-            Professionally, I've created software solutions for both internal
-            teams and external clients. My work spans user interface
-            development, API integration, legacy system migrations, and more. I
-            take care not just to write clean code, but to build systems that
-            are intuitive, efficient, and scalable.
+            Professionally, I've built a wide range of digital systems for both
+            internal teams and external clients. I focus not just on writing
+            clean code, but on creating solutions that are intuitive, efficient,
+            and scalable. My work includes modernizing legacy applications,
+            integrating APIs, designing engaging user experiences, and more.
           </Typography>
           <Typography variant="body1">
             Outside of coding, I enjoy traveling, live music, video games, and
