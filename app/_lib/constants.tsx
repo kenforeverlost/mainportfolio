@@ -44,7 +44,7 @@ import {
   SiVercel,
 } from 'react-icons/si'
 
-export const NAVIGATION_MENU = [
+export const SCROLL_MENU = [
   {
     label: 'About',
     section: 'about',
@@ -310,19 +310,14 @@ export const WORK_EXPERIENCE = [
 
 export const OTHER_LINKS = [
   {
-    name: 'kendrickdelapena@gmail.com',
-    url: 'mailto:kendrickdelapena@gmail.com',
-    icon: <HiOutlineMail />,
+    name: 'GitHub',
+    url: 'https://github.com/kenforeverlost',
+    icon: <FaGithub />,
   },
   {
     name: 'LinkedIn',
     url: 'https://www.linkedin.com/in/kendrickDLP',
     icon: <SiLinkedin />,
-  },
-  {
-    name: 'GitHub',
-    url: 'https://github.com/kenforeverlost',
-    icon: <FaGithub />,
   },
 ]
 
