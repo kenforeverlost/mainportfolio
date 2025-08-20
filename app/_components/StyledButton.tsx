@@ -18,6 +18,7 @@ const StyledButton = styled((props: ButtonProps) => (
   boxShadow: '0 5px 10px rgba(0,0,0,0.4)',
   backdropFilter: 'blur(8px)',
   transition: 'all 0.2s ease-in-out',
+  '& .MuiButton-endIcon': { marginLeft: '12px' },
   ...(variant === 'contained'
     ? {
         borderColor: theme.palette.primary.main,
@@ -33,14 +34,14 @@ const StyledButton = styled((props: ButtonProps) => (
       }
     : {
         borderColor: theme.palette.primary.main,
-        color: theme.palette.text.primary,
-        backgroundColor: 'transparent',
+        color: theme.palette.primary.main,
+        backgroundColor: 'white',
         '&:hover': {
           borderColor: theme.palette.secondary.main,
-          color: theme.palette.text.primary,
+          color: theme.palette.secondary.main,
           backgroundColor: `rgba(${hexToRgbStr(
             theme.palette.secondary.main,
-          )}, 0.2)`,
+          )}, 0.1)`,
           boxShadow: '0 5px 10px rgba(0,0,0,0.4)',
           backdropFilter: 'blur(8px)',
         },

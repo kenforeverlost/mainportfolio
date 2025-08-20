@@ -25,21 +25,21 @@ const Introduction = () => {
         >
           <Typography variant="body1">
             I've lived in Nevada for most of my life and proudly call myself a
-            Vegas local. While I've never flown into the city "for the weekend"
-            like most visitors, I've had the privilege of watching the city
-            evolve — from the ever-changing skyline to the growing tech scene.
+            Vegas local. While I've never flown in "for the weekend" like most
+            visitors, I've had the privilege of watching the city evolve — from
+            the ever-changing skyline to the growing tech scene.
           </Typography>
           <Typography variant="body1">
-            Professionally, I've created software solutions for both internal
-            teams and external clients. My work spans user interface
-            development, API integration, legacy system migrations, and more. I
-            take care not just to write clean code, but to build systems that
-            are intuitive, efficient, and scalable.
+            Professionally, I've built a variety of digital systems for both
+            internal teams and external clients. I focus not just on writing
+            clean code, but on creating solutions that are intuitive, efficient,
+            and scalable. My work includes modernizing legacy applications,
+            integrating APIs, designing engaging user experiences, and more.
           </Typography>
           <Typography variant="body1">
-            Outside of coding, I enjoy traveling, live music, video games, and
-            photography. I also take part in physical activities like
-            pickleball, rock climbing, and escape rooms. These hobbies inspire
+            Outside of coding, my hobbies range from traveling and photography
+            to video games and escape rooms. I also enjoy attending concerts,
+            playing pickleball, and rock climbing. These activities inspire
             creativity and sharpen the problem-solving skills I bring to my
             work.
           </Typography>

@@ -12,6 +12,7 @@ const Section = ({
   return (
     <Box
       sx={{
+        position: 'relative',
         bgcolor: backgroundColor ?? 'transparent',
         width: 1,
         ...(wholeScreen && {
@@ -27,6 +28,7 @@ const Section = ({
         id={id}
         maxWidth="lg"
         sx={{
+          scrollMarginTop: '64px',
           paddingX: 4,
           paddingY: 8,
         }}

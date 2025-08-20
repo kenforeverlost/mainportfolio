@@ -1,11 +1,11 @@
 import Image from 'next/image'
-import { Box, Grid, Link, ListItem, Stack, Typography } from '@mui/material'
-import { VscTools } from 'react-icons/vsc'
+import { Grid, Link, ListItem, Stack, Typography } from '@mui/material'
 
 import CardAccordion from '@components/CardAccordion'
 import StyledChip from '@components/StyledChip'
 import StyledList from '@components/StyledList'
 import StyledPaper from '@components/StyledPaper'
+import ToolsChipWrap from './ToolsChipWrap'
 
 const HistoryWrap = ({
   company,
@@ -27,12 +27,11 @@ const HistoryWrap = ({
   return (
     <StyledPaper
       sx={{
-        paddingX: 4,
-        paddingY: 4,
         width: 1,
+        maxWidth: { xs: 'sm', md: '100%' },
       }}
     >
-      <Grid container spacing={2}>
+      <Grid container>
         <Grid
           order={1}
           size={{ xs: 12, md: 4 }}
@@ -43,7 +42,9 @@ const HistoryWrap = ({
             alignItems: 'center',
             textAlign: 'center',
             gap: 4,
-            padding: 2,
+            padding: 4,
+            paddingRight: { xs: 4, md: 2 },
+            paddingBottom: { xs: 2, md: 4 },
           }}
         >
           <Link href={companyImage.link} target="_blank">
@@ -68,7 +69,11 @@ const HistoryWrap = ({
         <Grid
           order={{ xs: 2, md: 2 }}
           size={{ xs: 12, md: 8 }}
-          marginBottom={{ xs: 2, md: 0 }}
+          sx={{
+            padding: 4,
+            paddingLeft: { xs: 4, md: 2 },
+            paddingTop: { xs: 2, md: 4 },
+          }}
         >
           <CardAccordion>
             <StyledList>
@@ -91,14 +96,17 @@ const HistoryWrap = ({
         <Grid
           order={{ xs: 3, md: 3 }}
           size={{ xs: 12, md: 12 }}
+          borderTop={1}
+          borderColor="divider"
           sx={{
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
             gap: 2,
+            padding: 4,
           }}
         >
-          <Box
+          <ToolsChipWrap
             sx={{
               color: 'primary.main',
               display: 'flex',
@@ -107,9 +115,6 @@ const HistoryWrap = ({
               gap: 1,
             }}
           >
-            <Box component={'span'} sx={{ marginRight: 0.5 }}>
-              <VscTools fontSize={'1.625rem'} />
-            </Box>
             {mainTools.map((tool, index) => (
               <StyledChip
                 key={index}
@@ -118,7 +123,7 @@ const HistoryWrap = ({
                 label={tool}
               />
             ))}
-          </Box>
+          </ToolsChipWrap>
         </Grid>
       </Grid>
     </StyledPaper>

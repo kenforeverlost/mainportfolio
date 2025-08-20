@@ -6,6 +6,7 @@ const Footer = () => {
     <Box
       sx={{
         bgcolor: 'background.tertiary',
+        marginTop: 8,
         width: 1,
       }}
     >

@@ -1,8 +1,5 @@
 import Head from 'next/head'
-import { Box } from '@mui/material'
 
-import Footer from '@components/Footer'
-import Navigation from '@components/Navigation'
 import Hero from '@features/Hero'
 import History from '@features/History'
 import Introduction from '@features/Introduction'
@@ -16,16 +13,11 @@ const Home = () => {
         <title>Kendrick De La Pena</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <Box>
-        <Navigation />
-        <Hero />
-        <Introduction />
-        <Tools />
-        <History />
-        <Connect />
-      </Box>
-      <Footer />
+      <Hero />
+      <Introduction />
+      <Tools />
+      <History />
+      <Connect />
     </main>
   )
 }

@@ -1,10 +1,20 @@
 import { Box, Grid, Link, Stack, Typography } from '@mui/material'
+import { HiOutlineMail } from 'react-icons/hi'
 
 import ContactForm from '@components/ContactForm'
 import Section from '@components/container/Section'
-import { OTHER_LINKS } from '../_lib/constants'
+import { OTHER_LINKS } from '@lib/constants'
 
 const Connect = () => {
+  const connectLinks = [
+    {
+      name: 'kendrickdelapena@gmail.com',
+      url: 'mailto:kendrickdelapena@gmail.com',
+      icon: <HiOutlineMail />,
+    },
+    ...OTHER_LINKS,
+  ]
+
   return (
     <Section id={'contact'} backgroundColor="background.default">
       <Grid container spacing={4}>
@@ -24,8 +34,17 @@ const Connect = () => {
                 to connect.
               </Typography>
             </Stack>
-            <Stack spacing={2} paddingLeft={2}>
-              {OTHER_LINKS.map((item, index) => {
+            <Stack
+              sx={{
+                display: 'flex',
+                flexDirection: { xs: 'row', md: 'column' },
+                flexWrap: 'wrap',
+                justifyContent: { xs: 'center', md: 'flex-start' },
+                gap: { xs: 4, md: 2 },
+                paddingLeft: { xs: 0, md: 2 },
+              }}
+            >
+              {connectLinks.map((item, index) => {
                 return (
                   <Typography variant="h6" color="secondary" key={index}>
                     <Box

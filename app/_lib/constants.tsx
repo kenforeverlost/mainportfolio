@@ -9,11 +9,9 @@ import {
   FaBriefcase,
   FaGithub,
   FaHtml5,
-  FaInfo,
-  FaPhone,
-  FaProjectDiagram,
+  FaInfoCircle,
+  FaEnvelope,
   FaReact,
-  FaToolbox,
   FaTools,
 } from 'react-icons/fa'
 import { FaCode, FaComputer } from 'react-icons/fa6'
@@ -24,7 +22,6 @@ import {
   GiStarsStack,
   GiTiedScroll,
 } from 'react-icons/gi'
-import { HiOutlineMail } from 'react-icons/hi'
 import {
   SiCplusplus,
   SiCss3,
@@ -44,11 +41,11 @@ import {
   SiVercel,
 } from 'react-icons/si'
 
-export const NAVIGATION_MENU = [
+export const SCROLL_MENU = [
   {
     label: 'About',
     section: 'about',
-    icon: <FaInfo />,
+    icon: <FaInfoCircle />,
   },
   {
     label: 'Skills',
@@ -63,7 +60,7 @@ export const NAVIGATION_MENU = [
   {
     label: 'Contact',
     section: 'contact',
-    icon: <FaPhone />,
+    icon: <FaEnvelope />,
   },
 ]
 
@@ -265,13 +262,13 @@ export const WORK_EXPERIENCE = [
     },
     website: 'https://www.lasvegasrealtor.com/',
     highlights: [
-      'Built and deployed a forms platform that reduced manual paperwork and processed over 300 digital submissions in the first month',
-      'Enhanced the member web portal UI/UX, increasing engagement and improving access to association resources.',
-      'Developed internal admin tools that streamlined workflows for multiple member-facing departments.',
+      'Co-developed a forms system that reduced manual paperwork and processed over 300 digital submissions in the first month.',
+      'Enhanced the member web portal UI/UX, improving access to resources and engagement by 20-30%.',
+      'Developed internal admin tools that streamlined workflows across 4 departments.',
       'Integrated APIs, including DocuSign for digital applications and SendGrid for automated email notifications.',
-      'Digitized the member event check-in process, improving operational efficiency and data tracking.',
-      'Modernized legacy web portal components using Next.js and Supabase, improving performance and maintainability.',
-      'Contributed to development efforts for the member mobile app, ensuring consistency across platforms.',
+      'Digitized the member event check-in process, optimizing operational efficiency and data tracking.',
+      'Modernized legacy web portal components using Next.js and Supabase for better maintainability and performance.',
+      'Collaborated on the development of the member mobile app, ensuring consistency across platforms.',
     ],
     tools: [
       'PHP',
@@ -301,8 +298,8 @@ export const WORK_EXPERIENCE = [
       'Improved ERP, WMS, and E-Commerce software through custom feature development and critical bug fixes.',
       'Delivered on-site support to clients, resolving issues and building long-term confidence in the product.',
       'Led live software version upgrades, minimizing downtime and ensuring smooth transitions.',
-      'Mentored junior developers on company procedures and the OpenEdge ABL programming stack, accelerating their onboarding.',
-      'Conducted code reviews and assumed lead developer responsibilities when needed.',
+      'Mentored junior developers on OpenEdge ABL programming stack, accelerating their onboarding and growth.',
+      'Conducted code reviews and assumed lead developer responsibilities as needed.',
     ],
     tools: ['Openedge ABL', 'JavaScript', 'jQuery', 'HTML', 'CSS', 'Bootstrap'],
   },
@@ -310,18 +307,109 @@ export const WORK_EXPERIENCE = [
 
 export const OTHER_LINKS = [
   {
-    name: 'kendrickdelapena@gmail.com',
-    url: 'mailto:kendrickdelapena@gmail.com',
-    icon: <HiOutlineMail />,
+    name: 'GitHub',
+    url: 'https://github.com/kenforeverlost',
+    icon: <FaGithub />,
   },
   {
     name: 'LinkedIn',
     url: 'https://www.linkedin.com/in/kendrickDLP',
     icon: <SiLinkedin />,
   },
+]
+
+export const PROJECTS = [
   {
-    name: 'GitHub',
-    url: 'https://github.com/kenforeverlost',
-    icon: <FaGithub />,
+    title: 'Application Digitization',
+    subtitle: 'Web-based application process with DocuSign integration',
+    timeframe: 'Completed in 2021, expanded through 2023',
+    category: 'Work',
+    description:
+      'Replaced the paper-based membership application process with a streamlined web-based workflow. The system auto-fills member data from an external database and routes forms through DocuSign for securing signing. The same approach was later adapted other processes such as Board of Directors applications and Professional Standards case submissions.',
+    highlights: [
+      'Integrated DocuSign API for digital signing and status updates',
+      'Implemented a webhook for tracking and secure document storage',
+      'Built admin tools for monitoring and managing applications',
+    ],
+    impact:
+      'Significantly reduced application turnaround times, minimized clerical errors, and improved transparency for both staff and applicants',
+    tools: ['PHP', 'MySQL', 'JavaScript', 'HTML', 'CSS'],
+    image: ['/project/application1.png'],
+  },
+  {
+    title: 'Forms System',
+    subtitle: 'Hub for digitally signing and submitting association forms',
+    timeframe: 'Started in 2024, launched in 2025',
+    category: 'Work',
+    description:
+      'Co-developed a digital forms system that allowed for submitting association documents online. The system included a visual template builder that lets staff map inputs onto PDFs, reducing setup time for future forms. It mimics the signing flow of DocuSign and is optimized for mobile users.',
+    highlights: [
+      'Collaborated on the design of the architecture and workflow',
+      'Built a drag-and-drop PDF template mapper for dynamic form creation',
+      'Integrated AI validation to confirm the authenticity of required documents',
+    ],
+    impact:
+      'Increased accessibility and processing efficiency, with over 300 submissions in the first month',
+    tools: ['Next.js', 'TypeScript', 'React', 'Supabase', 'Material UI'],
+    image: ['/project/forms1.png'],
+  },
+  {
+    title: 'Member Check-In System',
+    subtitle:
+      'Custom-built event attendance system for weekly classes and meetings',
+    timeframe: 'Completed in 2021, migrated tech stack in 2022',
+    category: 'Work',
+    description:
+      'Designed and developed a digital check-in system for attendance tracking at association events. The system replaced the manual sign-in process with badge-scanning linked to a registration database. It was originally created in PHP and later migrated to Next.js and Supabase for better improved maintainability and user experience.',
+    highlights: [
+      'Built an end-to-end system in both PHP and MySQL and later Next.js and Supabase',
+      'Implemented registration validation, real-time updates, and admin tools',
+      'Designed a user interface for staff to manage check-ins and generate attendance reports',
+    ],
+    impact:
+      'Streamlined event operations, reduced human error, and attracted interest from other associations exploring similar modernization',
+    tools: [
+      'PHP',
+      'MySQL',
+      'SQL Server',
+      'JavaScript',
+      'Next.js',
+      'TypeScript',
+      'React',
+      'Supabase',
+      'Tailwind CSS',
+    ],
+    image: ['/project/checkIn1.png'],
+  },
+  {
+    title: 'Photography Portfolio',
+    subtitle: 'PHP web gallery showcasing portrait photography',
+    timeframe: 'Started in 2019, launched in 2020',
+    category: 'Hobby',
+    description:
+      'Created a simple portfolio site to showcase my portrait photography, linking my creative hobby to my development experience. Hosted on traditional cPanel, the site reflects legacy development methods and deepened my understanding of raw PHP',
+    highlights: [
+      'Designed a clean and responsive portrait photography gallery',
+      'Built a PHP-powered contact form for direct email inquiries',
+    ],
+    url: 'https://www.foreverlostphoto.com',
+    tools: ['PHP', 'JavaScript', 'HTML', 'CSS'],
+    image: ['/project/photography1.png'],
+  },
+  {
+    title: 'Wedding Website',
+    subtitle: 'Personalized site with a modern UI and RSVP functionality',
+    timeframe: 'Completed in 2024, updated through 2025',
+    category: 'Hobby',
+    description:
+      'Developed a custom wedding website in place of platforms like WithJoy or Zola. The site included RSVP functionality, real-time countdown, and event information pages — designed to be elegant and easy for all users.',
+    highlights: [
+      'Built a digital RSVP form with edit capabilities and guest-specific information',
+      'Implemented eye-catching features including a live countdown timer and visual story timeline',
+      'Delivered a modern, intuitive UI accessible to all tech levels in mind',
+    ],
+    url: 'https://www.forevercharred.com',
+    tools: ['Next.js', 'TypeScript', 'React', 'Supabase', 'Tailwind CSS'],
+    image: ['/project/wedding1.JPG'],
   },
 ]
