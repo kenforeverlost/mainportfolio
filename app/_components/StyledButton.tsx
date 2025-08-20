@@ -18,6 +18,7 @@ const StyledButton = styled((props: ButtonProps) => (
   boxShadow: '0 5px 10px rgba(0,0,0,0.4)',
   backdropFilter: 'blur(8px)',
   transition: 'all 0.2s ease-in-out',
+  '& .MuiButton-endIcon': { marginLeft: '12px' },
   ...(variant === 'contained'
     ? {
         borderColor: theme.palette.primary.main,

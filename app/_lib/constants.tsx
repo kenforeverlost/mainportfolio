@@ -9,11 +9,9 @@ import {
   FaBriefcase,
   FaGithub,
   FaHtml5,
-  FaInfo,
-  FaPhone,
-  FaProjectDiagram,
+  FaInfoCircle,
+  FaEnvelope,
   FaReact,
-  FaToolbox,
   FaTools,
 } from 'react-icons/fa'
 import { FaCode, FaComputer } from 'react-icons/fa6'
@@ -24,7 +22,6 @@ import {
   GiStarsStack,
   GiTiedScroll,
 } from 'react-icons/gi'
-import { HiOutlineMail } from 'react-icons/hi'
 import {
   SiCplusplus,
   SiCss3,
@@ -48,7 +45,7 @@ export const SCROLL_MENU = [
   {
     label: 'About',
     section: 'about',
-    icon: <FaInfo />,
+    icon: <FaInfoCircle />,
   },
   {
     label: 'Skills',
@@ -63,7 +60,7 @@ export const SCROLL_MENU = [
   {
     label: 'Contact',
     section: 'contact',
-    icon: <FaPhone />,
+    icon: <FaEnvelope />,
   },
 ]
 

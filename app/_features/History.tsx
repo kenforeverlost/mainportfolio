@@ -12,7 +12,15 @@ const History = () => {
       description={`I've had the opportunity to build software that solves real business problems and to go deep in refining those solutions over time. That hands-on experience has been key to my growth as a developer.`}
       backgroundColor="background.secondary"
     >
-      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: 5,
+        }}
+      >
         {WORK_EXPERIENCE.map((item, index) => (
           <HistoryWrap
             key={index}

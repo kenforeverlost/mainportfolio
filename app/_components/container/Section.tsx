@@ -28,6 +28,7 @@ const Section = ({
         id={id}
         maxWidth="lg"
         sx={{
+          scrollMarginTop: '64px',
           paddingX: 4,
           paddingY: 8,
         }}

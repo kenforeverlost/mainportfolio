@@ -1,14 +1,15 @@
 'use client'
 
 import React, { useState } from 'react'
-import { FaHome, FaProjectDiagram } from 'react-icons/fa'
+import Link from 'next/link'
+import { FaHome, FaFileAlt, FaProjectDiagram } from 'react-icons/fa'
 import { LuChevronDown, LuChevronUp } from 'react-icons/lu'
 import { RiMenu5Fill } from 'react-icons/ri'
 import {
   Box,
   Button,
+  Collapse,
   Container,
-  Divider,
   Drawer,
   Grid,
   IconButton,
@@ -27,11 +28,10 @@ import {
 
 import NavigationButton from '@components/NavigationButton'
 import { OTHER_LINKS, SCROLL_MENU } from '@lib/constants'
-import { scrollToSection } from '@lib/helpers'
-import Link from 'next/link'
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMobileScrollMenuOpen, setIsMobileScrollMenuOpen] = useState(false)
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
   const isScrollMenuOpen = Boolean(anchorEl)
 
@@ -52,7 +52,7 @@ const Navigation = () => {
       sx={{
         bgcolor: 'primary.main',
         boxShadow: 2,
-        paddingY: 2,
+        paddingY: 1,
         position: 'sticky',
         top: 0,
         zIndex: 50,
@@ -61,14 +61,14 @@ const Navigation = () => {
       <Container maxWidth="lg">
         <Grid container spacing={2}>
           <Grid
-            size={5}
+            size={isMobile ? 0 : 5}
             sx={{
-              display: 'flex',
+              display: isMobile ? 'none' : 'flex',
               justifyContent: 'flex-start',
               alignItems: 'center',
             }}
           >
-            <Box sx={{ display: 'flex' }}>
+            <Box sx={{ display: 'flex', gap: isMobile ? 2 : 1 }}>
               {OTHER_LINKS.map((item) => {
                 return (
                   <IconButton
@@ -76,7 +76,7 @@ const Navigation = () => {
                     component="a"
                     href={item.url}
                     target="_blank"
-                    size="medium"
+                    size={isMobile ? 'small' : 'medium'}
                     sx={{ color: 'text.secondary' }}
                   >
                     {item.icon}
@@ -86,22 +86,17 @@ const Navigation = () => {
             </Box>
           </Grid>
           <Grid
-            size={2}
+            size={isMobile ? 7 : 2}
             sx={{
               display: 'flex',
-              justifyContent: 'center',
+              justifyContent: isMobile ? 'flex-start' : 'center',
               alignItems: 'center',
             }}
           >
             <Button
               variant="text"
-              onClick={() => {
-                scrollToSection('home', () => {
-                  if (isMenuOpen) {
-                    setIsMenuOpen(false)
-                  }
-                })
-              }}
+              component={Link}
+              href="/"
               sx={{ cursor: 'pointer' }}
             >
               <Typography variant="h3" color="text.secondary">
@@ -158,6 +153,14 @@ const Navigation = () => {
                       anchorEl={anchorEl}
                       open={Boolean(anchorEl)}
                       onClose={handleClose}
+                      anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'center',
+                      }}
+                      transformOrigin={{
+                        vertical: 'top',
+                        horizontal: 'center',
+                      }}
                       slotProps={{
                         list: {
                           'aria-labelledby': 'scroll-menu-button',
@@ -167,14 +170,9 @@ const Navigation = () => {
                       {SCROLL_MENU.map((item, index) => (
                         <MenuItem
                           key={index}
-                          onClick={() => {
-                            scrollToSection(item.section, () => {
-                              if (isMenuOpen) {
-                                setIsMenuOpen(false)
-                              }
-                            })
-                            handleClose()
-                          }}
+                          component={Link}
+                          href={`/#${item.section}`}
+                          onClick={handleClose}
                         >
                           {item.label}
                         </MenuItem>
@@ -188,7 +186,13 @@ const Navigation = () => {
                   >
                     <Typography color="text.secondary">Projects</Typography>
                   </Button>
-                  <NavigationButton variant="contained">
+                  <NavigationButton
+                    variant="contained"
+                    component={Link}
+                    href="/profile/Resume-KendrickDeLaPena.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Typography>Resume</Typography>
                   </NavigationButton>
                 </Box>
@@ -197,34 +201,46 @@ const Navigation = () => {
           </Grid>
         </Grid>
       </Container>
-      <Drawer open={isMenuOpen} onClose={() => setIsMenuOpen(false)}>
+      <Drawer
+        anchor={'right'}
+        open={isMenuOpen}
+        onClose={() => setIsMenuOpen(false)}
+      >
         <Box sx={{ minWidth: 250 }}>
           <List>
-            <ListItem component={Link} href={'/'}>
+            <ListItem
+              onClick={() => setIsMobileScrollMenuOpen((prev) => !prev)}
+            >
               <ListItemButton sx={{ cursor: 'pointer' }}>
                 <ListItemIcon>
                   <FaHome />
                 </ListItemIcon>
                 <ListItemText primary={'Home'} color="text.secondary" />
+                <ListItemIcon
+                  sx={{ flex: 1, display: 'flex', justifyContent: 'center' }}
+                >
+                  {isMobileScrollMenuOpen ? (
+                    <LuChevronUp fontSize="large" />
+                  ) : (
+                    <LuChevronDown fontSize="large" />
+                  )}
+                </ListItemIcon>
               </ListItemButton>
             </ListItem>
-            {SCROLL_MENU.map((item, index) => (
-              <ListItem
-                key={index}
-                onClick={() => {
-                  scrollToSection(item.section, () => {
-                    if (isMenuOpen) {
-                      setIsMenuOpen(false)
-                    }
-                  })
-                }}
-              >
-                <ListItemButton sx={{ cursor: 'pointer' }}>
-                  <ListItemIcon>{item.icon}</ListItemIcon>
-                  <ListItemText primary={item.label} color="text.secondary" />
-                </ListItemButton>
-              </ListItem>
-            ))}
+            <Collapse in={isMobileScrollMenuOpen} timeout="auto" unmountOnExit>
+              {SCROLL_MENU.map((item, index) => (
+                <ListItem
+                  key={index}
+                  component={Link}
+                  href={`/#${item.section}`}
+                >
+                  <ListItemButton sx={{ cursor: 'pointer', paddingLeft: 4 }}>
+                    <ListItemIcon>{item.icon}</ListItemIcon>
+                    <ListItemText primary={item.label} color="text.secondary" />
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </Collapse>
             <ListItem component={Link} href={'/projects'}>
               <ListItemButton sx={{ cursor: 'pointer' }}>
                 <ListItemIcon>
@@ -233,7 +249,19 @@ const Navigation = () => {
                 <ListItemText primary={'Projects'} color="text.secondary" />
               </ListItemButton>
             </ListItem>
-            <Divider />
+            <ListItem
+              component={Link}
+              href="/profile/Resume-KendrickDeLaPena.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <ListItemButton sx={{ cursor: 'pointer' }}>
+                <ListItemIcon>
+                  <FaFileAlt />
+                </ListItemIcon>
+                <ListItemText primary={'Resume'} color="text.secondary" />
+              </ListItemButton>
+            </ListItem>
             {OTHER_LINKS.map((item) => {
               return (
                 <ListItem

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Box, Breadcrumbs, Container, Link, Typography } from '@mui/material'
-import { RxDoubleArrowRight } from 'react-icons/rx'
+import { LuChevronsRight } from 'react-icons/lu'
 import { VscHome } from 'react-icons/vsc'
 
 const MainBreadcrumbs = ({
@@ -27,7 +27,7 @@ const MainBreadcrumbs = ({
         }}
       >
         <Breadcrumbs
-          separator={<RxDoubleArrowRight />}
+          separator={<LuChevronsRight />}
           aria-label="breadcrumb"
           sx={{
             display: 'flex',

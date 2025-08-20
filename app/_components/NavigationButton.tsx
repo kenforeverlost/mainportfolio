@@ -3,7 +3,10 @@
 import React from 'react'
 import { Button, ButtonProps, styled } from '@mui/material'
 
-const NavigationButton = styled((props: ButtonProps) => (
+type NavigationButtonProps = ButtonProps &
+  React.AnchorHTMLAttributes<HTMLAnchorElement>
+
+const NavigationButton = styled((props: NavigationButtonProps) => (
   <Button disableElevation {...props} />
 ))(({ theme, variant, size }) => ({
   padding: '0px 24px',

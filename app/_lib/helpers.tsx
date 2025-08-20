@@ -25,10 +25,13 @@ export const hexToRgbStr = (hex: string): string => {
 export const scrollToSection = (sectionId: string, callback?: () => void) => {
   const element = document.getElementById(sectionId)
   if (element) {
-    const paddingTop = 80
-    const elementPosition = element.offsetTop - paddingTop
+    const paddingTop = 64
+    const boundingClientRect = element.getBoundingClientRect()
+    const currentPostion =
+      window.pageYOffset || document.documentElement.scrollTop
+    const elementPosition = boundingClientRect.top + currentPostion - paddingTop
 
-    if (sectionId === 'home') {
+    if (sectionId === 'home' || sectionId === 'welcome') {
       window.scrollTo({
         top: 0,
         behavior: 'smooth',

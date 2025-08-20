@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Box, Stack, Typography } from '@mui/material'
-import { FaPhone, FaProjectDiagram } from 'react-icons/fa'
+import { Box, BoxProps, Stack, Typography } from '@mui/material'
+import { HiOutlineMail } from 'react-icons/hi'
+import { LuChevronRight } from 'react-icons/lu'
 
 import ConnectButton from '@components/ConnectButton'
 import HighlightWrap from '@components/HighlightWrap'
@@ -11,8 +12,39 @@ import Section from '@components/container/Section'
 import { HIGHLIGHTS, IMAGES } from '@lib/constants'
 
 const Hero = () => {
+  const PictureWithHighlights = (props: BoxProps) => (
+    <Box {...props}>
+      <StyledPaper sx={{ borderRadius: '50%' }}>
+        <Image
+          src={IMAGES.profile}
+          alt="Profile Picture"
+          width={450}
+          height={450}
+        />
+      </StyledPaper>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          flexWrap: { xs: 'wrap', sm: 'nowrap' },
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: { xs: 1, sm: 2 },
+        }}
+      >
+        {HIGHLIGHTS.map((highlight, index) => (
+          <HighlightWrap
+            key={index}
+            label={highlight.label}
+            icon={highlight.icon}
+          />
+        ))}
+      </Box>
+    </Box>
+  )
+
   return (
-    <Section id={'home'}>
+    <Section id={'welcome'}>
       <Box
         sx={{
           display: 'flex',
@@ -20,7 +52,7 @@ const Hero = () => {
           gap: 8,
         }}
       >
-        <Box
+        <PictureWithHighlights
           sx={{
             display: { xs: 'none', md: 'flex' },
             flexDirection: 'column',
@@ -28,34 +60,7 @@ const Hero = () => {
             justifyContent: 'center',
             gap: 4,
           }}
-        >
-          <StyledPaper sx={{ borderRadius: '50%' }}>
-            <Image
-              src={IMAGES.profile}
-              alt="Profile Picture"
-              width={450}
-              height={450}
-            />
-          </StyledPaper>
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'row',
-              flexWrap: { xs: 'wrap', md: 'nowrap' },
-              justifyContent: 'center',
-              alignItems: 'center',
-              gap: { xs: 2, md: 2 },
-            }}
-          >
-            {HIGHLIGHTS.map((highlight, index) => (
-              <HighlightWrap
-                key={index}
-                label={highlight.label}
-                icon={highlight.icon}
-              />
-            ))}
-          </Box>
-        </Box>
+        />
         <Box
           sx={{
             display: 'flex',
@@ -72,22 +77,15 @@ const Hero = () => {
               Hello! I go by Kendrick
             </Typography>
           </Stack>
-          <Box
+          <PictureWithHighlights
             sx={{
               display: { xs: 'flex', md: 'none' },
-              flexDirection: 'row',
+              flexDirection: 'column',
+              alignItems: 'center',
               justifyContent: 'center',
+              gap: 4,
             }}
-          >
-            <StyledPaper sx={{ borderRadius: '50%' }}>
-              <Image
-                src={IMAGES.profile}
-                alt="Profile Picture"
-                width={450}
-                height={450}
-              />
-            </StyledPaper>
-          </Box>
+          />
           <Typography variant="body1">
             I am a software engineer based in{' '}
             <Typography component="span" color="secondary" fontWeight={700}>
@@ -98,7 +96,7 @@ const Hero = () => {
             that{' '}
             <Typography component="span" color="secondary" fontWeight={700}>
               make an impact
-            </Typography>
+            </Typography>{' '}
             .
           </Typography>
           <Box
@@ -113,14 +111,14 @@ const Hero = () => {
               href="/projects"
               component={Link}
               variant="contained"
-              endIcon={<FaProjectDiagram />}
+              endIcon={<LuChevronRight />}
               sx={{ width: { xs: 1, sm: 'fit-content' }, whiteSpace: 'nowrap' }}
             >
               See Projects
             </StyledButton>
             <ConnectButton
               variant="outlined"
-              endIcon={<FaPhone />}
+              endIcon={<HiOutlineMail />}
               sx={{ width: { xs: 1, sm: 'fit-content' }, whiteSpace: 'nowrap' }}
             >
               Get in Touch

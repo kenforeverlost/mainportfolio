@@ -30,9 +30,9 @@ const ProjectsSlug = ({ params }: ProjectsSlugProps) => {
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'center',
+          justifyContent: 'flex-start',
           alignItems: 'center',
-          marginTop: 4,
+          marginY: 4,
         }}
       >
         {projectData ? (

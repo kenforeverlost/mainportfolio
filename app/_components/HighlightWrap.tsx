@@ -10,22 +10,30 @@ const HighlightWrap = ({ label, icon }: Props) => {
     <Box
       sx={{
         display: 'flex',
-        alignItems: 'flex-start',
+        alignItems: 'center',
         gap: 1,
-        padding: '12px 24px',
-        backgroundColor: 'white',
+        padding: { xs: '8px 12px', sm: '12px 18px' },
+        backgroundColor: 'secondary.main',
         borderRadius: '32px',
-        borderWidth: '1px',
-        borderStyle: 'solid',
-        borderColor: 'primary.main',
-        minWidth: '240px',
+        minWidth: { xs: '165px', sm: '223px' },
+        boxShadow: '0 5px 10px rgba(0,0,0,0.4)',
+        backdropFilter: 'blur(8px)',
       }}
     >
-      <Box sx={{ fontSize: '1.5rem', color: 'secondary.main' }}>{icon}</Box>
+      <Box
+        sx={{
+          color: 'text.secondary',
+          display: { xs: 'none', sm: 'flex' },
+          fontSize: { xs: '1rem', sm: '1.25rem' },
+        }}
+      >
+        {icon}
+      </Box>
       <Typography
         variant="h6"
         sx={{
-          color: 'secondary.main',
+          color: 'text.secondary',
+          fontSize: { xs: '0.875rem', sm: '1rem' },
           whiteSpace: 'nowrap',
         }}
       >
