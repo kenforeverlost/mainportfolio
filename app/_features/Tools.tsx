@@ -9,7 +9,7 @@ const Tools = () => {
     <ProfileSection
       id={'skills'}
       title={'Languages, Frameworks, and More!'}
-      description={`Aside from dabbling with HTML during the early MySpace days, I got my real start in programming with C++ at my university. Since then, I've added more tools to my stack through the years and seek to learn even more.`}
+      description={`Aside from dabbling with HTML during the early MySpace days, I got my real start in programming with C++ at my university. Since then, I've expanded my skill set and seek to learn even more.`}
       backgroundColor="background.default"
     >
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 5 }}>

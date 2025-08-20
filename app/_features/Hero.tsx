@@ -93,9 +93,9 @@ const Hero = () => {
             <Typography component="span" color="secondary" fontWeight={700}>
               Las Vegas, Nevada (Ne-VA-duh)
             </Typography>
-            . With over a decade of experience developing digital systems, I
-            thrive on solving complex problems with creativity and building
-            efficient tools that{' '}
+            . With over a decade of experience making digital systems, I thrive
+            on solving complex problems with creativity and developing tools
+            that{' '}
             <Typography component="span" color="secondary" fontWeight={700}>
               make an impact
             </Typography>

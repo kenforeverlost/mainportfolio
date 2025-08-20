@@ -9,7 +9,7 @@ const History = () => {
     <ProfileSection
       id={'experience'}
       title={`Where I've Been`}
-      description={`Throughout my career, I've had the opportunity to solve real business problems and to go deep in refining those solutions over time. The hands-on experience has been key to my growth as a developer.`}
+      description={`I've had the opportunity to build software that solves real business problems and to go deep in refining those solutions over time. That hands-on experience has been key to my growth as a developer.`}
       backgroundColor="background.secondary"
     >
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 5 }}>

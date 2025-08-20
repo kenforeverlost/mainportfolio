@@ -29,9 +29,9 @@ export default function ProjectsHome() {
         >
           <Typography variant="h1">From Challenges to Solutions</Typography>
           <Typography variant="body1">
-            Every project here began with a clear need or an opportunity to fill
-            a gap. Drawing on my experience and technical skill, I built
-            applications that are efficient and carefully designed.
+            Every project I completed began with a clear need or an opportunity
+            to fill a gap. Using my experience and technical skills, I built
+            applications that are thoughtfully designed.
           </Typography>
         </Box>
       </Stack>
