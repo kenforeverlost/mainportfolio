@@ -4,7 +4,7 @@ import SMTPTransport from 'nodemailer/lib/smtp-transport'
 
 import { logNodemailer } from '@lib/actions'
 
-const isProduction = true //process.env.NODE_ENV === 'production'
+const isProduction = process.env.NODE_ENV === 'production'
 
 export async function POST(req: Request) {
   const transporter = nodemailer.createTransport({
@@ -61,10 +61,6 @@ export async function POST(req: Request) {
     }
   } catch (error) {
     console.error(error)
-    statusInfo = {
-      status_code: 500,
-      message: 'Email could not be sent at this time. Check back later!',
-    }
   }
 
   await logNodemailer({

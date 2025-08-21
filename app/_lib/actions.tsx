@@ -28,7 +28,9 @@ export const logNodemailer = async ({
       status_message,
       response: response ?? {},
     }
-    await supabase.from('log_nodemailer').insert(log)
+    const sbResponse = await supabase.from('log_nodemailer').insert(log)
+
+    console.log('Log Nodemailer response:', sbResponse)
   } catch (error) {
     console.error('Error logging Nodemailer data:', error)
   }
