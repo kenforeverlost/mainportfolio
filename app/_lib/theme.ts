@@ -4,18 +4,23 @@ import { createTheme } from '@mui/material/styles'
 import { grey } from '@mui/material/colors'
 
 declare module '@mui/material/styles' {
-  interface Palette {
+  interface CustomPalette {
+    tertiary: {
+      main: string
+      light: string
+      dark: string
+      contrastText: string
+    }
     accent: {
       main: string
+      light: string
+      dark: string
       contrastText: string
     }
   }
-  interface PaletteOptions {
-    accent: {
-      main: string
-      contrastText: string
-    }
-  }
+  interface Palette extends CustomPalette {}
+  interface PaletteOptions extends CustomPalette {}
+
   interface TypeBackground {
     secondary?: string
     tertiary?: string
@@ -30,15 +35,27 @@ const defaultTheme = createTheme({
       tertiary: '#c9d0d6',
     },
     primary: {
-      main: '#00386B',
+      light: '#4C6E91', // '#151C27'
+      main: '#00386B', // '#2B3446'
+      dark: '#002446', // '#0A0F18'
       contrastText: '#FFFFFF',
     },
     secondary: {
       main: '#0058AB',
+      light: '#4D87C5',
+      dark: '#003B73',
+      contrastText: '#FFFFFF',
+    },
+    tertiary: {
+      main: '#00A5CC',
+      light: '#4CC7E0',
+      dark: '#007995',
       contrastText: '#FFFFFF',
     },
     accent: {
       main: '#2AB090',
+      light: '#53C7B0',
+      dark: '#1C7D65',
       contrastText: '#000000',
     },
     info: {
@@ -64,7 +81,7 @@ const defaultTheme = createTheme({
     },
     // Page Title
     h1: {
-      fontSize: '2.5rem', // 40px
+      fontSize: '2.75rem', // 44px
       fontWeight: 700,
       lineHeight: 1.3,
     },

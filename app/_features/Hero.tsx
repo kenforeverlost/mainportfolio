@@ -10,6 +10,7 @@ import StyledButton from '@components/StyledButton'
 import StyledPaper from '@components/StyledPaper'
 import Section from '@components/container/Section'
 import { HIGHLIGHTS, IMAGES } from '@lib/constants'
+import { firaCode } from '@lib/fonts'
 
 const Hero = () => {
   const PictureWithHighlights = (props: BoxProps) => (
@@ -70,7 +71,7 @@ const Hero = () => {
           }}
         >
           <Stack spacing={2}>
-            <Typography variant="h1">
+            <Typography variant="h1" fontFamily={firaCode.style.fontFamily}>
               Engineer. Developer. Adventurer.
             </Typography>
             <Typography variant="h3" color="secondary">

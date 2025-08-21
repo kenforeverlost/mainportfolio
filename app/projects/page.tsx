@@ -2,6 +2,7 @@ import React from 'react'
 import { Box, Stack, Typography } from '@mui/material'
 
 import MainBreadcrumbs from '@components/MainBreadcrumbs'
+import { firaCode } from '@lib/fonts'
 
 export default function ProjectsHome() {
   return (
@@ -27,7 +28,9 @@ export default function ProjectsHome() {
             textAlign: 'center',
           }}
         >
-          <Typography variant="h1">From Challenges to Solutions</Typography>
+          <Typography variant="h1" fontFamily={firaCode.style.fontFamily}>
+            From Challenges to Solutions
+          </Typography>
           <Typography variant="body1">
             Every project I completed began with a clear need or an opportunity
             to fill a gap. Using my experience and technical skills, I built

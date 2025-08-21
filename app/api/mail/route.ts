@@ -1,54 +1,80 @@
 import { NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
+import SMTPTransport from 'nodemailer/lib/smtp-transport'
+
+import { logNodemailer } from '@lib/actions'
+
+const isProduction = true //process.env.NODE_ENV === 'production'
 
 export async function POST(req: Request) {
   const transporter = nodemailer.createTransport({
-    port: process.env.NODE_ENV === 'production' ? 465 : 2525,
+    port: isProduction ? 465 : 2525,
     host: process.env.NODEMAILER_HOST,
     auth: {
       user: process.env.NODEMAILER_USER,
       pass: process.env.NODEMAILER_PASS,
     },
-    secure: process.env.NODE_ENV === 'production',
+    secure: false,
   })
 
   const body = await req.json()
-  const { name, email, message } = body
-
+  const { name, email, message: userMessage } = body
   const mailData = {
-    from: '"KDLP Dev" <donotreply@kdlp.dev>',
+    from: '"KDLP Dev" <admin@kdlp.dev>',
     to: 'kendrickdelapena@gmail.com',
     subject: 'Portfolio Message',
-    html: `You received the following message from <b>${name} (${email})</b>:<br/><br/>${message}`,
+    html: `You received the following message from <b>${name} (${email})</b>:<br/><br/>${userMessage}`,
   }
-
   const simpleEmailFormat = /^[a-zA-Z0-9.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-
-  if (!name || !email || !message) {
-    return NextResponse.json({
-      status_code: 400,
-      message: 'Missing required information!',
-    })
-  }
-
-  if (!email.match(simpleEmailFormat)) {
-    return NextResponse.json({
-      status_code: 400,
-      message: 'Please provide a valid email!',
-    })
+  let statusInfo: {
+    status_code: number
+    message: string
+    response?: SMTPTransport.SentMessageInfo
+  } = {
+    status_code: 500,
+    message: 'Email could not be sent at this time. Check back later!',
+    response: undefined,
   }
 
   try {
-    await transporter.sendMail(mailData)
+    if (!name || !email || !userMessage) {
+      statusInfo = {
+        status_code: 400,
+        message: 'Missing required information!',
+        response: undefined,
+      }
+    } else if (!email.match(simpleEmailFormat)) {
+      statusInfo = {
+        status_code: 400,
+        message: 'Please provide a valid email!',
+        response: undefined,
+      }
+    } else {
+      const response: SMTPTransport.SentMessageInfo =
+        await transporter.sendMail(mailData)
 
-    return NextResponse.json({
-      status_code: 200,
-      message: 'Message has been sent!',
-    })
-  } catch {
-    return NextResponse.json({
-      status_code: 400,
+      statusInfo = {
+        status_code: 200,
+        message: 'Message has been sent!',
+        response: response,
+      }
+    }
+  } catch (error) {
+    console.error(error)
+    statusInfo = {
+      status_code: 500,
       message: 'Email could not be sent at this time. Check back later!',
-    })
+    }
   }
+
+  await logNodemailer({
+    name,
+    email,
+    message: userMessage,
+    status_code: statusInfo.status_code,
+    status_message: statusInfo.message,
+    response: statusInfo.response,
+  })
+
+  return NextResponse.json(statusInfo)
 }

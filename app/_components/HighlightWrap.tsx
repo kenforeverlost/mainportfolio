@@ -22,7 +22,7 @@ const HighlightWrap = ({ label, icon }: Props) => {
     >
       <Box
         sx={{
-          color: 'text.secondary',
+          color: 'secondary.contrastText',
           display: { xs: 'none', sm: 'flex' },
           fontSize: { xs: '1rem', sm: '1.25rem' },
         }}
@@ -32,7 +32,7 @@ const HighlightWrap = ({ label, icon }: Props) => {
       <Typography
         variant="h6"
         sx={{
-          color: 'text.secondary',
+          color: 'secondary.contrastText',
           fontSize: { xs: '0.875rem', sm: '1rem' },
           whiteSpace: 'nowrap',
         }}

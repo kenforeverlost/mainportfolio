@@ -33,7 +33,6 @@ const ContactForm = () => {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
 
-    console.log('handleChange', name, value)
     setMailForm((prev) => ({
       ...prev,
       [name]: value,
@@ -114,7 +113,6 @@ const ContactForm = () => {
         setMailFormProcessing(false)
       }
     } catch (error: unknown) {
-      console.log(error)
       setMailFormAlert({
         severity: 'error',
         children: 'Something weird occurred... Try again later!',

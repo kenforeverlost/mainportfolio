@@ -27,6 +27,7 @@ import {
 } from '@mui/material'
 
 import NavigationButton from '@components/NavigationButton'
+import SiteLogo from '@components/SiteLogo'
 import { OTHER_LINKS, SCROLL_MENU } from '@lib/constants'
 
 const Navigation = () => {
@@ -99,9 +100,7 @@ const Navigation = () => {
               href="/"
               sx={{ cursor: 'pointer' }}
             >
-              <Typography variant="h3" color="text.secondary">
-                KDLP
-              </Typography>
+              <SiteLogo />
             </Button>
           </Grid>
           <Grid

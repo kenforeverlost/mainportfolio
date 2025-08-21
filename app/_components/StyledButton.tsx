@@ -25,9 +25,9 @@ const StyledButton = styled((props: ButtonProps) => (
         color: theme.palette.primary.contrastText,
         backgroundColor: theme.palette.primary.main,
         '&:hover': {
-          borderColor: theme.palette.secondary.main,
+          borderColor: theme.palette.primary.dark,
           color: theme.palette.primary.contrastText,
-          backgroundColor: theme.palette.secondary.main,
+          backgroundColor: theme.palette.primary.dark,
           boxShadow: '0 5px 10px rgba(0,0,0,0.4)',
           backdropFilter: 'blur(8px)',
         },
@@ -35,12 +35,12 @@ const StyledButton = styled((props: ButtonProps) => (
     : {
         borderColor: theme.palette.primary.main,
         color: theme.palette.primary.main,
-        backgroundColor: 'white',
+        backgroundColor: theme.palette.primary.contrastText,
         '&:hover': {
-          borderColor: theme.palette.secondary.main,
-          color: theme.palette.secondary.main,
+          borderColor: theme.palette.primary.dark,
+          color: theme.palette.primary.dark,
           backgroundColor: `rgba(${hexToRgbStr(
-            theme.palette.secondary.main,
+            theme.palette.primary.main,
           )}, 0.1)`,
           boxShadow: '0 5px 10px rgba(0,0,0,0.4)',
           backdropFilter: 'blur(8px)',
