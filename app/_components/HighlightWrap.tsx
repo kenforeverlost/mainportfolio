@@ -12,10 +12,10 @@ const HighlightWrap = ({ label, icon }: Props) => {
         display: 'flex',
         alignItems: 'center',
         gap: 1,
-        padding: { xs: '8px 12px', sm: '12px 18px' },
+        padding: { xs: '8px', sm: '12px 18px' },
         backgroundColor: 'secondary.main',
         borderRadius: '32px',
-        minWidth: { xs: '165px', sm: '223px' },
+        minWidth: { xs: '155px', sm: '223px' },
         boxShadow: '0 5px 10px rgba(0,0,0,0.4)',
         backdropFilter: 'blur(8px)',
       }}

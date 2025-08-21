@@ -263,7 +263,7 @@ export const WORK_EXPERIENCE = [
     website: 'https://www.lasvegasrealtor.com/',
     highlights: [
       'Co-developed a forms system that reduced manual paperwork and processed over 300 digital submissions in the first month.',
-      'Enhanced the member web portal UI/UX, improving access to resources and engagement by 20-30%.',
+      'Enhanced the member web portal UI/UX, improving access to resources and user engagement.',
       'Developed internal admin tools that streamlined workflows across 4 departments.',
       'Integrated APIs, including DocuSign for digital applications and SendGrid for automated email notifications.',
       'Digitized the member event check-in process, optimizing operational efficiency and data tracking.',

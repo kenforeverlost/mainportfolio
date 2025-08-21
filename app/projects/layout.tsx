@@ -10,9 +10,10 @@ type ProjectsLayoutProps = {
   children?: ReactNode
 }
 
-const metadata: Metadata = {
+export const metadata: Metadata = {
   title: 'KDLP Projects',
-  description: 'Project Hub',
+  description:
+    'A showcase of projects by Kendrick De La Pena, highlighting skills in full stack development, JavaScript, React, Next.js, and more.',
 }
 
 export default function ProjectsLayout({

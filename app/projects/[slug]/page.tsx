@@ -1,4 +1,5 @@
 import React, { use } from 'react'
+import { Metadata, ResolvingMetadata } from 'next'
 import { Typography, Stack } from '@mui/material'
 
 import MainBreadcrumbs from '@components/MainBreadcrumbs'
@@ -8,6 +9,23 @@ import { PROJECTS } from '@lib/constants'
 
 interface ProjectsSlugProps {
   params: Promise<{ slug: string }>
+}
+
+export const generateMetadata = async (
+  { params }: { params: { slug: string } },
+  parent: ResolvingMetadata,
+): Promise<Metadata> => {
+  const { slug } = params
+
+  const projectData = PROJECTS.find(
+    (item) => item.title.toLocaleLowerCase().replaceAll(' ', '-') === slug,
+  )
+
+  return {
+    title: projectData?.title
+      ? `KDLP Projects - ${projectData.title}`
+      : 'KDLP Projects',
+  }
 }
 
 const ProjectsSlug = ({ params }: ProjectsSlugProps) => {
@@ -22,37 +40,34 @@ const ProjectsSlug = ({ params }: ProjectsSlugProps) => {
     : { label: 'Unknown' }
 
   return (
-    <>
+    <Stack
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        marginY: 4,
+        minHeight: 'calc(100dvh - 225px)',
+      }}
+    >
       <MainBreadcrumbs
         crumbs={[{ label: 'Projects', href: '/projects' }, currentCrumb]}
       />
-      <Stack
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'flex-start',
-          alignItems: 'center',
-          marginY: 4,
-        }}
-      >
-        {projectData ? (
-          <StyledPaper
-            sx={{
-              paddingY: 4,
-              width: 1,
-            }}
-          >
-            <Stack>
-              <ProjectDetailsWrap projectData={projectData} />
-            </Stack>
-          </StyledPaper>
-        ) : (
-          <Typography variant="h4">
-            Project details could not be found!
-          </Typography>
-        )}
-      </Stack>
-    </>
+      {projectData ? (
+        <StyledPaper
+          sx={{
+            paddingY: 4,
+            width: 1,
+          }}
+        >
+          <ProjectDetailsWrap projectData={projectData} />
+        </StyledPaper>
+      ) : (
+        <Typography variant="h4">
+          Project details could not be found!
+        </Typography>
+      )}
+    </Stack>
   )
 }
 

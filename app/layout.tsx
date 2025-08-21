@@ -7,11 +7,10 @@ import Footer from '@components/Footer'
 import Navigation from '@components/Navigation'
 import defaultTheme from '@lib/theme'
 
-// TODO: Fix metadata and how to change on subsequent pages
-
 export const metadata: Metadata = {
   title: 'Kendrick De La Pena',
-  description: 'Portfolio Website',
+  description:
+    'Portfolio of Kendrick De La Pena, a full stack software engineer specializing in JavaScript, React, Next.js, and database-driven applications. Over 10 years of experience delivering scalable, client-focused solutions.',
 }
 
 export default function RootLayout({

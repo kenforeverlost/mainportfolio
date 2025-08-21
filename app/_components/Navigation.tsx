@@ -206,10 +206,17 @@ const Navigation = () => {
         open={isMenuOpen}
         onClose={() => setIsMenuOpen(false)}
       >
-        <Box sx={{ minWidth: 250 }}>
+        <Box
+          sx={{ minWidth: 250 }}
+          role="presentation"
+          onClick={() => setIsMenuOpen(false)}
+        >
           <List>
             <ListItem
-              onClick={() => setIsMobileScrollMenuOpen((prev) => !prev)}
+              onClick={(event) => {
+                event.stopPropagation()
+                setIsMobileScrollMenuOpen((prev) => !prev)
+              }}
             >
               <ListItemButton sx={{ cursor: 'pointer' }}>
                 <ListItemIcon>
