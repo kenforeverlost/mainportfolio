@@ -15,7 +15,7 @@ export const generateMetadata = async (
   { params }: PageProps,
   parent: ResolvingMetadata,
 ): Promise<Metadata> => {
-  const { slug } = use(params)
+  const { slug } = await params
 
   const projectData = PROJECTS.find(
     (item) => item.title.toLocaleLowerCase().replaceAll(' ', '-') === slug,
