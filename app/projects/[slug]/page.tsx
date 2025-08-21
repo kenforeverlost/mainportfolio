@@ -7,15 +7,15 @@ import ProjectDetailsWrap from '@components/ProjectDetailsWrap'
 import StyledPaper from '@components/StyledPaper'
 import { PROJECTS } from '@lib/constants'
 
-interface ProjectsSlugProps {
+interface PageProps {
   params: Promise<{ slug: string }>
 }
 
 export const generateMetadata = async (
-  { params }: { params: { slug: string } },
+  { params }: PageProps,
   parent: ResolvingMetadata,
 ): Promise<Metadata> => {
-  const { slug } = params
+  const { slug } = use(params)
 
   const projectData = PROJECTS.find(
     (item) => item.title.toLocaleLowerCase().replaceAll(' ', '-') === slug,
@@ -28,7 +28,7 @@ export const generateMetadata = async (
   }
 }
 
-const ProjectsSlug = ({ params }: ProjectsSlugProps) => {
+const ProjectsSlug = ({ params }: PageProps) => {
   const { slug } = use(params)
 
   const projectData = PROJECTS.find(
