@@ -4,11 +4,9 @@ import SMTPTransport from 'nodemailer/lib/smtp-transport'
 
 import { logNodemailer } from '@lib/actions'
 
-const isProduction = process.env.NODE_ENV === 'production'
-
 export async function POST(req: Request) {
   const transporter = nodemailer.createTransport({
-    port: isProduction ? 465 : 2525,
+    port: Number(process.env.NODEMAILER_PORT),
     host: process.env.NODEMAILER_HOST,
     auth: {
       user: process.env.NODEMAILER_USER,
