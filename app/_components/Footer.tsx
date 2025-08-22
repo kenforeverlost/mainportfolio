@@ -21,7 +21,8 @@ const Footer = () => {
           sx={{
             display: 'flex',
             flexDirection: 'row',
-            gap: 4,
+            flexWrap: 'wrap',
+            gap: 2,
             alignItems: 'center',
             justifyContent: 'space-between',
           }}

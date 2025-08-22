@@ -47,7 +47,7 @@ const ProjectsSlug = ({ params }: PageProps) => {
         justifyContent: 'flex-start',
         alignItems: 'center',
         marginY: 4,
-        minHeight: 'calc(100dvh - 225px)',
+        minHeight: 'calc(100dvh - 425px)',
       }}
     >
       <MainBreadcrumbs
