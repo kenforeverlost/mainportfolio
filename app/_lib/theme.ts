@@ -1,7 +1,7 @@
 'use client'
 
 import { createTheme } from '@mui/material/styles'
-import { grey } from '@mui/material/colors'
+import { blueGrey, grey } from '@mui/material/colors'
 
 declare module '@mui/material/styles' {
   interface CustomPalette {
@@ -27,6 +27,12 @@ declare module '@mui/material/styles' {
   }
 }
 
+declare module '@mui/material/Chip' {
+  interface ChipPropsColorOverrides {
+    tertiary: true
+  }
+}
+
 const defaultTheme = createTheme({
   palette: {
     background: {
@@ -35,9 +41,9 @@ const defaultTheme = createTheme({
       tertiary: '#c9d0d6',
     },
     primary: {
-      light: '#4C6E91', // '#151C27'
-      main: '#00386B', // '#2B3446'
-      dark: '#002446', // '#0A0F18'
+      main: '#151C27',
+      light: '#2B3446',
+      dark: '#0A0F18',
       contrastText: '#FFFFFF',
     },
     secondary: {
@@ -56,7 +62,7 @@ const defaultTheme = createTheme({
       main: '#2AB090',
       light: '#53C7B0',
       dark: '#1C7D65',
-      contrastText: '#000000',
+      contrastText: '#FFFFFF',
     },
     info: {
       main: '#1869C5',
@@ -72,7 +78,7 @@ const defaultTheme = createTheme({
     },
     text: {
       primary: grey[900],
-      secondary: grey[50],
+      secondary: blueGrey[100],
     },
   },
   typography: {
@@ -81,13 +87,13 @@ const defaultTheme = createTheme({
     },
     // Page Title
     h1: {
-      fontSize: '2.75rem', // 44px
+      fontSize: '3rem', // 48px
       fontWeight: 700,
       lineHeight: 1.3,
     },
     // Section Title
     h2: {
-      fontSize: '2rem', // 32px
+      fontSize: '1.875rem', // 30px
       fontWeight: 600,
       lineHeight: 1.3,
     },

@@ -21,26 +21,26 @@ const StyledButton = styled((props: ButtonProps) => (
   '& .MuiButton-endIcon': { marginLeft: '12px' },
   ...(variant === 'contained'
     ? {
-        borderColor: theme.palette.primary.main,
-        color: theme.palette.primary.contrastText,
-        backgroundColor: theme.palette.primary.main,
+        borderColor: theme.palette.secondary.main,
+        color: theme.palette.secondary.contrastText,
+        backgroundColor: theme.palette.secondary.main,
         '&:hover': {
-          borderColor: theme.palette.primary.dark,
-          color: theme.palette.primary.contrastText,
-          backgroundColor: theme.palette.primary.dark,
+          borderColor: theme.palette.secondary.dark,
+          color: theme.palette.secondary.contrastText,
+          backgroundColor: theme.palette.secondary.dark,
           boxShadow: '0 5px 10px rgba(0,0,0,0.4)',
           backdropFilter: 'blur(8px)',
         },
       }
     : {
-        borderColor: theme.palette.primary.main,
-        color: theme.palette.primary.main,
-        backgroundColor: theme.palette.primary.contrastText,
+        borderColor: theme.palette.secondary.main,
+        color: theme.palette.secondary.main,
+        backgroundColor: theme.palette.secondary.contrastText,
         '&:hover': {
-          borderColor: theme.palette.primary.dark,
-          color: theme.palette.primary.dark,
+          borderColor: theme.palette.secondary.dark,
+          color: theme.palette.secondary.dark,
           backgroundColor: `rgba(${hexToRgbStr(
-            theme.palette.primary.main,
+            theme.palette.secondary.main,
           )}, 0.1)`,
           boxShadow: '0 5px 10px rgba(0,0,0,0.4)',
           backdropFilter: 'blur(8px)',

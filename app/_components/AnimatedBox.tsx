@@ -43,19 +43,19 @@ const AnimatedBox = ({
   } else if (typeof duration === 'string') {
     switch (duration) {
       case 'button':
-        transitionDuration = 0.25
+        transitionDuration = 0.5
         break
       case 'card':
-        transitionDuration = 0.35
+        transitionDuration = 0.7
         break
       case 'image':
-        transitionDuration = 0.4
+        transitionDuration = 0.8
         break
       case 'text':
-        transitionDuration = 0.3
+        transitionDuration = 0.6
         break
       default:
-        transitionDuration = 0.35
+        transitionDuration = 0.7
         break
     }
   }

@@ -20,7 +20,7 @@ const Footer = () => {
         <Stack
           sx={{
             display: 'flex',
-            flexDirection: { xs: 'column', md: 'row' },
+            flexDirection: 'row',
             gap: 4,
             alignItems: 'center',
             justifyContent: 'space-between',
@@ -31,9 +31,10 @@ const Footer = () => {
             sx={{
               color: 'text.primary',
               textAlign: { xs: 'left', md: 'center' },
+              whiteSpace: 'nowrap',
             }}
           >
-            Copyright © 2025 - Kendrick De La Pena
+            © 2025 Kendrick De La Pena
           </Typography>
 
           <LinkIcon
@@ -41,10 +42,16 @@ const Footer = () => {
               display: 'flex',
               flexDirection: 'row',
               justifyContent: { xs: 'flex-start', md: 'flex-end' },
-              gap: { xs: 4, md: 2 },
+              gap: { xs: 1, md: 2 },
             }}
             iconButtonSlots={{
-              sx: { fontSize: '1.5rem', color: 'primary.main' },
+              sx: {
+                fontSize: '1.5rem',
+                color: 'secondary.main',
+                '&:hover': {
+                  color: 'secondary.dark',
+                },
+              },
             }}
           />
         </Stack>

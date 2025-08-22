@@ -57,7 +57,7 @@ const HistoryWrap = ({
             />
           </Link>
           <Stack>
-            <Typography variant="h4" color="primary">
+            <Typography variant="h4" color="secondary.dark">
               {company.position}
             </Typography>
             <Typography variant="body1">{company.name}</Typography>
@@ -108,7 +108,7 @@ const HistoryWrap = ({
         >
           <ToolsChipWrap
             sx={{
-              color: 'primary.main',
+              color: 'secondary.dark',
               display: 'flex',
               flexWrap: 'wrap',
               alignItems: 'center',

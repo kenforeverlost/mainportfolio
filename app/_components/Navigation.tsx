@@ -78,7 +78,7 @@ const Navigation = () => {
                     href={item.url}
                     target="_blank"
                     size={isMobile ? 'small' : 'medium'}
-                    sx={{ color: 'text.secondary' }}
+                    sx={{ color: 'primary.contrastText' }}
                   >
                     {item.icon}
                   </IconButton>
@@ -117,7 +117,7 @@ const Navigation = () => {
                 edge="start"
                 aria-label="menu"
                 sx={{
-                  color: 'text.secondary',
+                  color: 'primary.contrastText',
                   marginRight: 2,
                 }}
               >
@@ -140,12 +140,16 @@ const Navigation = () => {
                       sx={{
                         cursor: 'pointer',
                         '& .MuiButton-endIcon': {
-                          color: 'text.secondary',
+                          color: 'primary.contrastText',
                           marginLeft: 1,
+                        },
+                        '&:hover': {
+                          color: 'text.secondary',
+                          textDecoration: 'underline',
                         },
                       }}
                     >
-                      <Typography color="text.secondary">Home</Typography>
+                      <Typography color="primary.contrastText">Home</Typography>
                     </Button>
                     <Menu
                       id="scroll-menu"
@@ -181,12 +185,20 @@ const Navigation = () => {
                   <Button
                     variant="text"
                     href="/projects"
-                    sx={{ cursor: 'pointer' }}
+                    sx={{
+                      cursor: 'pointer',
+                      '&:hover': {
+                        color: 'text.secondary',
+                        textDecoration: 'underline',
+                      },
+                    }}
                   >
-                    <Typography color="text.secondary">Projects</Typography>
+                    <Typography color="primary.contrastText">
+                      Projects
+                    </Typography>
                   </Button>
                   <NavigationButton
-                    variant="contained"
+                    variant="outlined"
                     component={Link}
                     href="/profile/Resume-KendrickDeLaPena.pdf"
                     target="_blank"
@@ -221,7 +233,7 @@ const Navigation = () => {
                 <ListItemIcon>
                   <FaHome />
                 </ListItemIcon>
-                <ListItemText primary={'Home'} color="text.secondary" />
+                <ListItemText primary={'Home'} color="primary.contrastText" />
                 <ListItemIcon
                   sx={{ flex: 1, display: 'flex', justifyContent: 'center' }}
                 >
@@ -242,7 +254,10 @@ const Navigation = () => {
                 >
                   <ListItemButton sx={{ cursor: 'pointer', paddingLeft: 4 }}>
                     <ListItemIcon>{item.icon}</ListItemIcon>
-                    <ListItemText primary={item.label} color="text.secondary" />
+                    <ListItemText
+                      primary={item.label}
+                      color="primary.contrastText"
+                    />
                   </ListItemButton>
                 </ListItem>
               ))}
@@ -252,7 +267,10 @@ const Navigation = () => {
                 <ListItemIcon>
                   <FaProjectDiagram />
                 </ListItemIcon>
-                <ListItemText primary={'Projects'} color="text.secondary" />
+                <ListItemText
+                  primary={'Projects'}
+                  color="primary.contrastText"
+                />
               </ListItemButton>
             </ListItem>
             <ListItem
@@ -265,7 +283,7 @@ const Navigation = () => {
                 <ListItemIcon>
                   <FaFileAlt />
                 </ListItemIcon>
-                <ListItemText primary={'Resume'} color="text.secondary" />
+                <ListItemText primary={'Resume'} color="primary.contrastText" />
               </ListItemButton>
             </ListItem>
             {OTHER_LINKS.map((item) => {
@@ -278,7 +296,10 @@ const Navigation = () => {
                 >
                   <ListItemButton>
                     <ListItemIcon>{item.icon}</ListItemIcon>
-                    <ListItemText primary={item.name} color="text.secondary" />
+                    <ListItemText
+                      primary={item.name}
+                      color="primary.contrastText"
+                    />
                   </ListItemButton>
                 </ListItem>
               )

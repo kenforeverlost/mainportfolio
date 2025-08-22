@@ -12,7 +12,6 @@ const SiteLogo = () => {
         cursor: 'pointer',
         display: 'flex',
         flexDirection: 'row',
-        gap: 0.5,
         whiteSpace: 'nowrap',
       }}
     >
@@ -28,7 +27,7 @@ const SiteLogo = () => {
         color="secondary.contrastText"
         fontFamily={firaCode.style.fontFamily}
         fontWeight={'bold'}
-        sx={{ letterSpacing: '0.1rem' }}
+        sx={{ letterSpacing: '0.1rem', paddingLeft: 0.5 }}
       >
         KDLP
       </Typography>
@@ -38,7 +37,6 @@ const SiteLogo = () => {
         color="tertiary.main"
         fontFamily={firaCode.style.fontFamily}
         fontWeight={'bold'}
-        sx={{ marginTop: '-5px' }}
       >{`_`}</Typography>
     </Box>
   )

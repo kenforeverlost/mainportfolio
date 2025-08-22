@@ -12,7 +12,7 @@ const StyledToggleButtonGroup = styled((props: ToggleButtonGroupProps) => (
 ))(({ theme }) => ({
   borderWidth: '1px',
   borderStyle: 'solid',
-  borderColor: theme.palette.primary.main,
+  borderColor: theme.palette.secondary.main,
   borderRadius: '14px',
   overflow: 'hidden',
   gap: 0,
@@ -26,18 +26,18 @@ const StyledToggleButtonGroup = styled((props: ToggleButtonGroupProps) => (
     padding: '4px 18px',
     '&:hover': {
       backgroundColor: 'transparent',
-      color: theme.palette.primary.main,
+      color: theme.palette.secondary.main,
       textDecoration: 'underline',
     },
   },
   '& .MuiToggleButton-root.Mui-selected': {
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.primary.contrastText,
+    backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.secondary.contrastText,
     boxShadow: '2px 1px 3px rgba(0,0,0,0.4)',
     backdropFilter: 'blur(8px)',
     '&:hover': {
-      backgroundColor: theme.palette.primary.dark,
-      color: theme.palette.primary.contrastText,
+      backgroundColor: theme.palette.secondary.dark,
+      color: theme.palette.secondary.contrastText,
       textDecoration: 'none',
     },
   },

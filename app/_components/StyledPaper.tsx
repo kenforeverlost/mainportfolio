@@ -6,6 +6,7 @@ import { Paper, PaperProps, styled } from '@mui/material'
 const StyledPaper = styled((props: PaperProps) => (
   <Paper elevation={2} {...props} />
 ))(({ theme }) => ({
+  backgroundColor: theme.palette.primary.contrastText,
   borderRadius: '16px',
   overflow: 'hidden',
   display: 'inline-block',

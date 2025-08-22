@@ -38,11 +38,13 @@ const ProjectDetailsWrap = ({ projectData }: ProjectsSlugModalProps) => {
             gap: 2,
           }}
         >
-          <Typography variant="h2">{projectData.title}</Typography>
+          <Typography variant="h2" color="secondary.dark">
+            {projectData.title}
+          </Typography>
           <Box sx={{ marginTop: 0.5 }}>
             <StyledChip
               variant="filled"
-              color="secondary"
+              color="tertiary"
               label={projectData.category}
             />
           </Box>
@@ -90,7 +92,19 @@ const ProjectDetailsWrap = ({ projectData }: ProjectsSlugModalProps) => {
         {projectData.url && (
           <Stack spacing={1}>
             <Typography variant="h5">Site</Typography>
-            <MuiLink href={projectData.url} target="_blank" component={Link}>
+            <MuiLink
+              href={projectData.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              component={Link}
+              sx={{
+                color: 'secondary.main',
+                '&:hover': {
+                  color: 'secondary.light',
+                  textDecoration: 'underline',
+                },
+              }}
+            >
               {projectData.url}
             </MuiLink>
           </Stack>
@@ -99,7 +113,7 @@ const ProjectDetailsWrap = ({ projectData }: ProjectsSlugModalProps) => {
       <Divider sx={{ marginY: 4 }} />
       <ToolsChipWrap
         sx={{
-          color: 'primary.main',
+          color: 'secondary.dark',
           display: 'flex',
           flexWrap: 'wrap',
           alignItems: 'center',

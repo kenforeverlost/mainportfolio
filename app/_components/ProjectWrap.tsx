@@ -72,7 +72,7 @@ const ProjectWrap = ({ project }: { project: ProjectsType }) => {
             </Typography>
             <Typography variant="body1">
               {subtitle}.{' '}
-              <Typography component={'span'} color="secondary.main">
+              <Typography component={'span'} color="tertiary.main">
                 #{category}
               </Typography>
             </Typography>
