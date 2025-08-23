@@ -31,6 +31,7 @@ const ProjectWrap = ({ project }: { project: ProjectsType }) => {
     >
       <ButtonBase
         href={`/projects/${slug}`}
+        scroll={false}
         component={Link}
         sx={{
           height: 1,

@@ -16,8 +16,11 @@ import {
 } from 'react-icons/fa'
 import { FaCode, FaComputer } from 'react-icons/fa6'
 import {
+  GiAirplaneDeparture,
+  GiBoombox,
   GiGraduateCap,
   GiHearts,
+  GiLaptop,
   GiMusicalNotes,
   GiStarsStack,
   GiTiedScroll,
@@ -90,7 +93,7 @@ export const FACTS = [
   },
   {
     label: 'Degree',
-    description: 'B.S. in Computer Engineering',
+    description: 'Bachelor of Science in Computer Engineering',
     icon: <GiTiedScroll />,
   },
   {
@@ -101,12 +104,17 @@ export const FACTS = [
   {
     label: 'Favorite Language',
     description: 'JavaScript',
-    icon: <GiHearts />,
+    icon: <GiLaptop />,
   },
   {
-    label: 'Music',
+    label: 'Music Genres',
     description: 'EDM, Rock, and R&B',
-    icon: <GiMusicalNotes />,
+    icon: <GiBoombox />,
+  },
+  {
+    label: 'Countries Visited',
+    description: 'Philippines, Mexico, Japan, South Korea, Peru',
+    icon: <GiAirplaneDeparture />,
   },
 ]
 

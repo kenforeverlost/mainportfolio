@@ -23,10 +23,9 @@ const History = () => {
           <Stack sx={{ direction: 'column', gap: 2 }}>
             <Typography variant="h2">Where I've Been</Typography>
             <Typography variant="body1">
-              I've had the opportunity to build software that solves real
-              business problems and to go deep in refining those solutions over
-              time. That hands-on experience has been key to my growth as a
-              developer.
+              Building and refining software that solves real business problems
+              has been key to my growth as a developer. Seeing these solutions
+              in use and improving over time motivates me to keep creating.
             </Typography>
           </Stack>
         </AnimatedBox>

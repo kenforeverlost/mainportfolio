@@ -158,7 +158,7 @@ const Hero = () => {
                 developing tools that{' '}
                 <Typography component="span" color="primary" fontWeight={700}>
                   make an impact
-                </Typography>{' '}
+                </Typography>
                 .
               </Typography>
             </AnimatedBox>
