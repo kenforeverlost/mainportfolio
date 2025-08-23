@@ -1,4 +1,4 @@
-import { Box, Grid, Link, Stack, Typography } from '@mui/material'
+import { Box, Grid, Link, Typography } from '@mui/material'
 import { HiOutlineMail } from 'react-icons/hi'
 
 import AnimatedBox from '@components/AnimatedBox'
@@ -25,7 +25,7 @@ const Connect = () => {
 
   return (
     <VisibleProvider>
-      <Section id={'contact'} backgroundColor="background.default">
+      <Section id={'contact'} sx={{ backgroundColor: 'background.default' }}>
         <Grid container spacing={4}>
           <Grid size={{ xs: 12, md: 6 }}>
             <Box
@@ -67,23 +67,35 @@ const Connect = () => {
               >
                 {connectLinks.map((item, index) => {
                   return (
-                    <Typography variant="h6" color="secondary" key={index}>
+                    <Box
+                      key={index}
+                      sx={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        flexWrap: 'wrap',
+                        gap: 0.5,
+                        alignItems: 'center',
+                      }}
+                    >
                       <Box
-                        component="span"
                         sx={{
+                          display: 'flex',
+                          alignItems: 'center',
                           color: 'secondary.main',
-                          display: 'inline-block',
                           fontSize: '1.5rem',
                           marginRight: 1,
-                          verticalAlign: 'bottom',
                         }}
                       >
                         {item.icon}
                       </Box>
-                      <Link href={item.url} target="_blank" color="secondary">
+                      <Link
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         {item.name}
                       </Link>
-                    </Typography>
+                    </Box>
                   )
                 })}
               </AnimatedBox>

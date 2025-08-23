@@ -32,7 +32,6 @@ const MainBreadcrumbs = ({
           sx={{
             display: 'flex',
             alignItems: 'center',
-            color: 'primary.main',
             '& .MuiBreadcrumbs-separator': {
               marginX: 1,
               scale: 1,
@@ -41,14 +40,9 @@ const MainBreadcrumbs = ({
           }}
         >
           <Link
-            underline="hover"
             sx={{
               display: 'flex',
               alignItems: 'center',
-              color: 'secondary.main',
-              '&:hover': {
-                color: 'secondary.light',
-              },
             }}
             href="/"
           >
@@ -66,14 +60,9 @@ const MainBreadcrumbs = ({
                 <Link
                   key={index}
                   variant={'body1'}
-                  underline="hover"
                   href={item.href}
                   sx={{
                     cursor: 'pointer',
-                    color: 'secondary.main',
-                    '&:hover': {
-                      color: 'secondary.light',
-                    },
                   }}
                 >
                   {item.label}
@@ -81,7 +70,7 @@ const MainBreadcrumbs = ({
               )
             } else {
               return (
-                <Typography variant="body1" color="primary.main" key={index}>
+                <Typography variant="body1" color="secondary.main" key={index}>
                   {item.label}
                 </Typography>
               )

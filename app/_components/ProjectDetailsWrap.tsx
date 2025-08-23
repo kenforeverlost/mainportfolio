@@ -1,15 +1,7 @@
 'use client'
 
 import React from 'react'
-import Link from 'next/link'
-import {
-  Box,
-  Divider,
-  ListItem,
-  Link as MuiLink,
-  Stack,
-  Typography,
-} from '@mui/material'
+import { Box, Divider, Link, ListItem, Stack, Typography } from '@mui/material'
 
 import StyledChip from '@components/StyledChip'
 import StyledList from '@components/StyledList'
@@ -92,21 +84,13 @@ const ProjectDetailsWrap = ({ projectData }: ProjectsSlugModalProps) => {
         {projectData.url && (
           <Stack spacing={1}>
             <Typography variant="h5">Site</Typography>
-            <MuiLink
+            <Link
               href={projectData.url}
               target="_blank"
               rel="noopener noreferrer"
-              component={Link}
-              sx={{
-                color: 'secondary.main',
-                '&:hover': {
-                  color: 'secondary.light',
-                  textDecoration: 'underline',
-                },
-              }}
             >
               {projectData.url}
-            </MuiLink>
+            </Link>
           </Stack>
         )}
       </Box>

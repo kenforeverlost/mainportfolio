@@ -5,16 +5,12 @@ import AnimatedBox from '@components/AnimatedBox'
 import Section from '@components/container/Section'
 import { ProfileSectionProps } from '@lib/types'
 
-const ProfileSection = ({
-  id,
-  title,
-  subtitle,
-  description,
-  backgroundColor,
-  children,
-}: ProfileSectionProps) => {
+//TODO: Remove this and just have Section. It's messing up scroll
+
+const ProfileSection = (props: ProfileSectionProps) => {
+  const { title, subtitle, description } = props
   return (
-    <Section id={id} backgroundColor={backgroundColor}>
+    <Section {...props}>
       <AnimatedBox duration={'text'} direction="up">
         <Stack sx={{ direction: 'column', gap: 2 }}>
           <Typography variant="h2">{title}</Typography>
@@ -28,7 +24,7 @@ const ProfileSection = ({
           )}
         </Stack>
       </AnimatedBox>
-      {children}
+      {props.children}
     </Section>
   )
 }

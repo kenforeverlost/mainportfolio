@@ -17,26 +17,28 @@ const NavigationButton = styled((props: NavigationButtonProps) => (
   borderRadius: '16px',
   borderStyle: 'solid',
   cursor: 'pointer',
+  boxShadow: '0 5px 10px rgba(0,0,0,0.4)',
+  backdropFilter: 'blur(8px)',
   ...(variant === 'contained'
     ? {
-        borderColor: theme.palette.tertiary.main,
-        color: theme.palette.tertiary.contrastText,
-        backgroundColor: theme.palette.tertiary.main,
+        borderColor: theme.palette.secondary.main,
+        color: theme.palette.secondary.contrastText,
+        backgroundColor: theme.palette.secondary.main,
         '&:hover': {
-          borderColor: theme.palette.tertiary.light,
-          color: theme.palette.tertiary.contrastText,
-          backgroundColor: theme.palette.tertiary.light,
+          borderColor: theme.palette.secondary.dark,
+          color: theme.palette.secondary.contrastText,
+          backgroundColor: theme.palette.secondary.dark,
         },
       }
     : {
-        borderColor: theme.palette.tertiary.main,
-        color: theme.palette.tertiary.main,
+        borderColor: theme.palette.secondary.main,
+        color: theme.palette.secondary.main,
         backgroundColor: 'transparent',
         '&:hover': {
-          borderColor: theme.palette.tertiary.light,
-          color: theme.palette.tertiary.light,
+          borderColor: theme.palette.secondary.dark,
+          color: theme.palette.secondary.dark,
           backgroundColor: `rgba(${hexToRgbStr(
-            theme.palette.tertiary.main,
+            theme.palette.secondary.main,
           )}, 0.1)`,
         },
       }),

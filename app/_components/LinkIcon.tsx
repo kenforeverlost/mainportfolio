@@ -17,9 +17,13 @@ const LinkIcon = (props: LinkIconProps) => {
             component="a"
             href={item.url}
             target="_blank"
-            size="small"
             {...iconButtonSlots}
             sx={{
+              color: 'primary.contrastText',
+              transition: 'opacity 0.3s ease-in-out',
+              '&:hover': {
+                color: 'tertiary.main',
+              },
               width: '40px',
               height: '40px',
               ...iconButtonSlots?.sx,

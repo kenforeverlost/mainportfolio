@@ -30,15 +30,15 @@ declare module '@mui/material/styles' {
 declare module '@mui/material/Chip' {
   interface ChipPropsColorOverrides {
     tertiary: true
+    accent: true
   }
 }
 
 const defaultTheme = createTheme({
   palette: {
     background: {
-      default: '#e3e7ea',
-      secondary: '#d6dde2',
-      tertiary: '#c9d0d6',
+      default: '#F5F7FA',
+      secondary: '#E6EBEF',
     },
     primary: {
       main: '#151C27',
@@ -59,10 +59,10 @@ const defaultTheme = createTheme({
       contrastText: '#FFFFFF',
     },
     accent: {
-      main: '#2AB090',
-      light: '#53C7B0',
-      dark: '#1C7D65',
-      contrastText: '#FFFFFF',
+      main: '#FFC857',
+      light: '#FFDF77',
+      dark: '#F1A92C',
+      contrastText: '#000000',
     },
     info: {
       main: '#1869C5',
@@ -77,8 +77,8 @@ const defaultTheme = createTheme({
       main: '#B00007',
     },
     text: {
-      primary: grey[900],
-      secondary: blueGrey[100],
+      primary: '#000000',
+      secondary: grey[900],
     },
   },
   typography: {
@@ -140,6 +140,20 @@ const defaultTheme = createTheme({
     subtitle2: {
       fontSize: '0.875rem', // 14px
       lineHeight: 1.5,
+    },
+  },
+  components: {
+    MuiLink: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          color: theme.palette.tertiary.main,
+          textDecoration: 'none',
+          '&:hover': {
+            color: theme.palette.tertiary.light,
+            textDecoration: 'underline',
+          },
+        }),
+      },
     },
   },
 })

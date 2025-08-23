@@ -1,4 +1,4 @@
-import { ImageProps } from 'next/image'
+import { BoxProps } from '@mui/material'
 
 export interface MailFormType {
   name: string
@@ -19,12 +19,7 @@ export interface ProjectsType {
   image: string[]
 }
 
-export interface SectionProps {
-  id: string
-  backgroundColor?: string
-  wholeScreen?: boolean
-  children: React.ReactNode
-}
+export interface SectionProps extends BoxProps {}
 
 export interface ProfileSectionProps extends SectionProps {
   title: string

@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material'
+import { Box, Stack, Typography } from '@mui/material'
 
 interface Props {
   label: string
@@ -7,23 +7,20 @@ interface Props {
 
 const HighlightWrap = ({ label, icon }: Props) => {
   return (
-    <Box
+    <Stack
       sx={{
         display: 'flex',
+        flexDirection: 'row',
         alignItems: 'center',
-        gap: 1,
-        padding: { xs: '8px', sm: '12px 18px' },
-        backgroundColor: 'primary.main',
-        borderRadius: '32px',
-        minWidth: { xs: '155px', sm: '223px' },
-        boxShadow: '0 5px 10px rgba(0,0,0,0.4)',
-        backdropFilter: 'blur(8px)',
+        gap: { xs: 0.5, sm: 1 },
+        whiteSpace: 'nowrap',
       }}
     >
       <Box
         sx={{
+          display: 'flex',
+          alignItems: 'center',
           color: 'tertiary.main',
-          display: { xs: 'none', sm: 'flex' },
           fontSize: { xs: '1rem', sm: '1.25rem' },
         }}
       >
@@ -32,14 +29,13 @@ const HighlightWrap = ({ label, icon }: Props) => {
       <Typography
         variant="h6"
         sx={{
-          color: 'tertiary.contrastText',
-          fontSize: { xs: '0.875rem', sm: '1rem' },
-          whiteSpace: 'nowrap',
+          color: 'primary.contrastText',
+          fontSize: { xs: '.875rem', sm: '1.125rem' },
         }}
       >
         {label}
       </Typography>
-    </Box>
+    </Stack>
   )
 }
 

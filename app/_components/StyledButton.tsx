@@ -35,7 +35,7 @@ const StyledButton = styled((props: ButtonProps) => (
     : {
         borderColor: theme.palette.secondary.main,
         color: theme.palette.secondary.main,
-        backgroundColor: theme.palette.secondary.contrastText,
+        backgroundColor: 'transparent',
         '&:hover': {
           borderColor: theme.palette.secondary.dark,
           color: theme.palette.secondary.dark,

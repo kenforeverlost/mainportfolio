@@ -1,25 +1,35 @@
-import { Box } from '@mui/material'
+import { Box, Stack, Typography } from '@mui/material'
 
 import AnimatedBox from '@components/AnimatedBox'
 import HistoryWrap from '@components/HistoryWrap'
-import ProfileSection from '@components/ProfileSection'
+import Section from '@components/container/Section'
 import { VisibleProvider } from '@contexts/VisibleContext'
 import { WORK_EXPERIENCE } from '@lib/constants'
 
 const History = () => {
   const delayTime = {
+    title: 0.0,
     historyCardStart: 0.3,
     historyCardIncrement: 0.3,
   }
 
   return (
     <VisibleProvider>
-      <ProfileSection
+      <Section
         id={'experience'}
-        title={`Where I've Been`}
-        description={`I've had the opportunity to build software that solves real business problems and to go deep in refining those solutions over time. That hands-on experience has been key to my growth as a developer.`}
-        backgroundColor="background.secondary"
+        sx={{ backgroundColor: 'background.secondary' }}
       >
+        <AnimatedBox duration={'text'} direction="up" delay={delayTime.title}>
+          <Stack sx={{ direction: 'column', gap: 2 }}>
+            <Typography variant="h2">Where I've Been</Typography>
+            <Typography variant="body1">
+              I've had the opportunity to build software that solves real
+              business problems and to go deep in refining those solutions over
+              time. That hands-on experience has been key to my growth as a
+              developer.
+            </Typography>
+          </Stack>
+        </AnimatedBox>
         <Box
           sx={{
             display: 'flex',
@@ -58,7 +68,7 @@ const History = () => {
             </AnimatedBox>
           ))}
         </Box>
-      </ProfileSection>
+      </Section>
     </VisibleProvider>
   )
 }

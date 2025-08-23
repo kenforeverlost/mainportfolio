@@ -17,22 +17,36 @@ import { firaCode } from '@lib/fonts'
 const Hero = () => {
   const PictureWithHighlights = (props: BoxProps) => (
     <Box {...props}>
-      <StyledPaper sx={{ borderRadius: '50%' }}>
+      <StyledPaper
+        sx={{
+          borderRadius: '50%',
+          minWidth: { xs: 'auto', md: '475px' },
+          height: 'fit-content',
+        }}
+      >
         <Image
           src={IMAGES.profile}
           alt="Profile Picture"
           width={450}
           height={450}
+          style={{ width: '100%', height: '100%' }}
         />
       </StyledPaper>
       <Box
         sx={{
+          position: { xs: 'initial', md: 'absolute' },
+          bottom: -80,
           display: 'flex',
           flexDirection: 'row',
-          flexWrap: { xs: 'wrap', sm: 'nowrap' },
+          flexWrap: 'nowrap',
           justifyContent: 'center',
           alignItems: 'center',
-          gap: { xs: 1, sm: 2 },
+          gap: { xs: 1.5, sm: 4 },
+          backgroundColor: 'primary.main',
+          borderRadius: '32px',
+          padding: { xs: '8px 14px', sm: '12px 24px' },
+          boxShadow: '0 5px 10px rgba(0,0,0,0.4)',
+          backdropFilter: 'blur(8px)',
         }}
       >
         {HIGHLIGHTS.map((highlight, index) => (
@@ -55,12 +69,18 @@ const Hero = () => {
   }
 
   return (
-    <Section id={'welcome'}>
+    <Section
+      id={'welcome'}
+      sx={{
+        background: 'linear-gradient(to bottom,#E6EBEF, #F5F7FA)',
+      }}
+    >
       <VisibleProvider>
         <Box
           sx={{
             display: 'flex',
             flexDirection: { xs: 'column-reverse', md: 'row' },
+            alignItems: 'center',
             gap: 8,
             minHeight: '80dvh',
           }}
@@ -69,11 +89,12 @@ const Hero = () => {
             duration={'image'}
             delay={delayTime['pictureDesktop']}
             sx={{
-              display: { xs: 'none', md: 'flex' },
+              display: { xs: 'none', md: 'block' },
             }}
           >
             <PictureWithHighlights
               sx={{
+                position: 'relative',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -103,7 +124,7 @@ const Hero = () => {
               >
                 Engineer. Developer. Adventurer.
               </Typography>
-              <Typography variant="h3" color="secondary">
+              <Typography variant="h3" color="tertiary.main" fontSize={'2rem'}>
                 Hello! I go by Kendrick
               </Typography>
             </AnimatedBox>
@@ -121,6 +142,7 @@ const Hero = () => {
                   alignItems: 'center',
                   justifyContent: 'center',
                   gap: 4,
+                  width: 1,
                 }}
               />
             </AnimatedBox>
@@ -130,11 +152,8 @@ const Hero = () => {
               direction="up"
             >
               <Typography variant="body1">
-                I am a software engineer based in{' '}
-                <Typography component="span" color="primary" fontWeight={700}>
-                  Las Vegas, Nevada (Ne-VA-duh)
-                </Typography>
-                . With over a decade of experience making digital systems, I
+                I am a software engineer based in Las Vegas, Nevada (Ne-VA-duh).
+                With over a decade of experience making digital systems, I
                 thrive on solving complex problems with creativity and
                 developing tools that{' '}
                 <Typography component="span" color="primary" fontWeight={700}>

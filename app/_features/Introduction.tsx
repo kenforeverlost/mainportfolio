@@ -1,23 +1,25 @@
-import { Box, Grid, Typography } from '@mui/material'
+import { Box, Grid, Stack, Typography } from '@mui/material'
 
 import AnimatedBox from '@components/AnimatedBox'
-import ProfileSection from '@components/ProfileSection'
 import StyledPaper from '@components/StyledPaper'
+import Section from '@components/container/Section'
 import { VisibleProvider } from '@contexts/VisibleContext'
 import { FACTS } from '@lib/constants'
 
 const Introduction = () => {
   const delayTime = {
+    title: 0.0,
     bio: 0.0,
     facts: 0.3,
   }
   return (
     <VisibleProvider>
-      <ProfileSection
-        id={'about'}
-        title="So About Me..."
-        backgroundColor="background.secondary"
-      >
+      <Section id={'about'} sx={{ backgroundColor: 'background.secondary' }}>
+        <AnimatedBox duration={'text'} direction="up" delay={delayTime.title}>
+          <Stack sx={{ direction: 'column', gap: 2 }}>
+            <Typography variant="h2">So About Me...</Typography>
+          </Stack>
+        </AnimatedBox>
         <Grid container spacing={4}>
           <Grid size={{ xs: 12, md: 7 }} order={{ xs: 1, md: 1 }}>
             <AnimatedBox
@@ -93,7 +95,7 @@ const Introduction = () => {
                           display: 'inline-block',
                           fontSize: '1.5rem',
                           marginRight: 1,
-                          verticalAlign: 'middle',
+                          verticalAlign: 'top',
                         }}
                       >
                         {item.icon}
@@ -109,7 +111,7 @@ const Introduction = () => {
             </AnimatedBox>
           </Grid>
         </Grid>
-      </ProfileSection>
+      </Section>
     </VisibleProvider>
   )
 }

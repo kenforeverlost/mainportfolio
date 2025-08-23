@@ -1,11 +1,13 @@
-import LinkIcon from './LinkIcon'
 import { Box, Container, Stack, Typography } from '@mui/material'
+import { PiCopyrightLight } from 'react-icons/pi'
+
+import LinkIcon from '@components/LinkIcon'
 
 const Footer = () => {
   return (
     <Box
       sx={{
-        bgcolor: 'background.tertiary',
+        bgcolor: 'primary.main',
         marginTop: 8,
         width: 1,
       }}
@@ -27,16 +29,36 @@ const Footer = () => {
             justifyContent: 'space-between',
           }}
         >
-          <Typography
-            variant="body2"
+          <Box
             sx={{
-              color: 'text.primary',
-              textAlign: { xs: 'left', md: 'center' },
-              whiteSpace: 'nowrap',
+              display: 'flex',
+              flexDirection: 'row',
+              flexWrap: 'wrap',
+              gap: 0.5,
+              alignItems: 'center',
             }}
           >
-            © 2025 Kendrick De La Pena
-          </Typography>
+            <Box
+              sx={{
+                color: 'secondary.contrastText',
+                display: 'flex',
+                alignItems: 'center',
+              }}
+            >
+              <PiCopyrightLight />
+            </Box>
+            <Typography
+              component="span"
+              variant="body2"
+              sx={{
+                color: 'secondary.contrastText',
+                textAlign: { xs: 'left', md: 'center' },
+                whiteSpace: 'nowrap',
+              }}
+            >
+              2025 Kendrick De La Pena
+            </Typography>
+          </Box>
 
           <LinkIcon
             sx={{
@@ -44,15 +66,6 @@ const Footer = () => {
               flexDirection: 'row',
               justifyContent: { xs: 'flex-start', md: 'flex-end' },
               gap: { xs: 1, md: 2 },
-            }}
-            iconButtonSlots={{
-              sx: {
-                fontSize: '1.5rem',
-                color: 'secondary.main',
-                '&:hover': {
-                  color: 'secondary.dark',
-                },
-              },
             }}
           />
         </Stack>

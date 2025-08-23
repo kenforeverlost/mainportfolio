@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { FaHome, FaFileAlt, FaProjectDiagram } from 'react-icons/fa'
 import { LuChevronDown, LuChevronUp } from 'react-icons/lu'
 import { RiMenu5Fill } from 'react-icons/ri'
@@ -26,6 +27,7 @@ import {
   useTheme,
 } from '@mui/material'
 
+import LinkIcon from '@components/LinkIcon'
 import NavigationButton from '@components/NavigationButton'
 import SiteLogo from '@components/SiteLogo'
 import { OTHER_LINKS, SCROLL_MENU } from '@lib/constants'
@@ -44,6 +46,7 @@ const Navigation = () => {
     setAnchorEl(null)
   }
 
+  const path = usePathname()
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
 
@@ -69,22 +72,14 @@ const Navigation = () => {
               alignItems: 'center',
             }}
           >
-            <Box sx={{ display: 'flex', gap: isMobile ? 2 : 1 }}>
-              {OTHER_LINKS.map((item) => {
-                return (
-                  <IconButton
-                    key={item.name}
-                    component="a"
-                    href={item.url}
-                    target="_blank"
-                    size={isMobile ? 'small' : 'medium'}
-                    sx={{ color: 'primary.contrastText' }}
-                  >
-                    {item.icon}
-                  </IconButton>
-                )
-              })}
-            </Box>
+            <LinkIcon
+              sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: { xs: 'flex-start', md: 'flex-end' },
+                gap: { xs: 1, md: 2 },
+              }}
+            />
           </Grid>
           <Grid
             size={isMobile ? 7 : 2}
@@ -143,13 +138,27 @@ const Navigation = () => {
                           color: 'primary.contrastText',
                           marginLeft: 1,
                         },
-                        '&:hover': {
-                          color: 'text.secondary',
-                          textDecoration: 'underline',
-                        },
                       }}
                     >
-                      <Typography color="primary.contrastText">Home</Typography>
+                      <Typography
+                        color="primary.contrastText"
+                        sx={{
+                          textDecoration: path === '/' ? 'underline' : 'none',
+                          textDecorationColor: theme.palette.tertiary.main,
+                          textDecorationThickness: '1px',
+                          textDecorationStyle: 'solid',
+                          textUnderlineOffset: '6px',
+                          '&:hover': {
+                            textDecoration: 'underline',
+                            textDecorationColor: theme.palette.tertiary.main,
+                            textDecorationThickness: '1px',
+                            textDecorationStyle: 'solid',
+                            textUnderlineOffset: '6px',
+                          },
+                        }}
+                      >
+                        Home
+                      </Typography>
                     </Button>
                     <Menu
                       id="scroll-menu"
@@ -187,18 +196,31 @@ const Navigation = () => {
                     href="/projects"
                     sx={{
                       cursor: 'pointer',
-                      '&:hover': {
-                        color: 'text.secondary',
-                        textDecoration: 'underline',
-                      },
                     }}
                   >
-                    <Typography color="primary.contrastText">
+                    <Typography
+                      color="primary.contrastText"
+                      sx={{
+                        textDecoration:
+                          path === '/projects' ? 'underline' : 'none',
+                        textDecorationColor: theme.palette.tertiary.main,
+                        textDecorationThickness: '1px',
+                        textDecorationStyle: 'solid',
+                        textUnderlineOffset: '6px',
+                        '&:hover': {
+                          textDecoration: 'underline',
+                          textDecorationColor: theme.palette.tertiary.main,
+                          textDecorationThickness: '1px',
+                          textDecorationStyle: 'solid',
+                          textUnderlineOffset: '6px',
+                        },
+                      }}
+                    >
                       Projects
                     </Typography>
                   </Button>
                   <NavigationButton
-                    variant="outlined"
+                    variant="contained"
                     component={Link}
                     href="/profile/Resume-KendrickDeLaPena.pdf"
                     target="_blank"
