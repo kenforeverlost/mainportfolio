@@ -45,7 +45,7 @@ const Hero = () => {
           backgroundColor: 'primary.main',
           borderRadius: '32px',
           padding: { xs: '8px 14px', sm: '12px 24px' },
-          boxShadow: '0 5px 10px rgba(0,0,0,0.4)',
+          boxShadow: 3,
           backdropFilter: 'blur(8px)',
         }}
       >

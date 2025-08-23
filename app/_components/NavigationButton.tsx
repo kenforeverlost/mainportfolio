@@ -17,8 +17,8 @@ const NavigationButton = styled((props: NavigationButtonProps) => (
   borderRadius: '16px',
   borderStyle: 'solid',
   cursor: 'pointer',
-  boxShadow: '0 5px 10px rgba(0,0,0,0.4)',
-  backdropFilter: 'blur(8px)',
+  boxShadow: theme.shadows[3],
+  backdropFilter: 'blur(6px)',
   ...(variant === 'contained'
     ? {
         borderColor: theme.palette.secondary.main,

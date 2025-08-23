@@ -10,8 +10,8 @@ const StyledPaper = styled((props: PaperProps) => (
   borderRadius: '16px',
   overflow: 'hidden',
   display: 'inline-block',
-  boxShadow: '0 5px 10px rgba(0,0,0,0.4)',
-  backdropFilter: 'blur(8px)',
+  boxShadow: theme.shadows[3],
+  backdropFilter: 'blur(6px)',
 }))
 
 export default StyledPaper

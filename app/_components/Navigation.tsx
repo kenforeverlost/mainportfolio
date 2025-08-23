@@ -23,7 +23,6 @@ import {
   MenuItem,
   Stack,
   Typography,
-  useMediaQuery,
   useTheme,
 } from '@mui/material'
 
@@ -48,14 +47,13 @@ const Navigation = () => {
 
   const path = usePathname()
   const theme = useTheme()
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'))
 
   return (
     <Box
       component="header"
       sx={{
         bgcolor: 'primary.main',
-        boxShadow: 2,
+        boxShadow: theme.shadows[3],
         paddingY: 1,
         position: 'sticky',
         top: 0,
@@ -65,9 +63,9 @@ const Navigation = () => {
       <Container maxWidth="lg">
         <Grid container spacing={2}>
           <Grid
-            size={isMobile ? 0 : 5}
+            size={{ xs: 0, md: 5 }}
             sx={{
-              display: isMobile ? 'none' : 'flex',
+              display: { xs: 'none', md: 'flex' },
               justifyContent: 'flex-start',
               alignItems: 'center',
             }}
@@ -82,10 +80,10 @@ const Navigation = () => {
             />
           </Grid>
           <Grid
-            size={isMobile ? 7 : 2}
+            size={{ xs: 7, md: 2 }}
             sx={{
               display: 'flex',
-              justifyContent: isMobile ? 'flex-start' : 'center',
+              justifyContent: { xs: 'flex-start', md: 'center' },
               alignItems: 'center',
             }}
           >
@@ -106,103 +104,45 @@ const Navigation = () => {
               alignItems: 'center',
             }}
           >
-            {isMobile ? (
-              <IconButton
-                size="large"
-                edge="start"
-                aria-label="menu"
-                sx={{
-                  color: 'primary.contrastText',
-                  marginRight: 2,
-                }}
-              >
-                <RiMenu5Fill onClick={() => setIsMenuOpen(!isMenuOpen)} />
-              </IconButton>
-            ) : (
-              <Stack spacing={4} display={'flex'} direction={'row'}>
-                <Box sx={{ display: 'flex', gap: 4 }}>
-                  <div>
-                    <Button
-                      id="scroll-menu-button"
-                      variant="text"
-                      aria-controls={
-                        isScrollMenuOpen ? 'basic-menu' : undefined
-                      }
-                      aria-haspopup="true"
-                      aria-expanded={isScrollMenuOpen ? 'true' : undefined}
-                      endIcon={<LuChevronDown />}
-                      onClick={handleMenu}
-                      sx={{
-                        cursor: 'pointer',
-                        '& .MuiButton-endIcon': {
-                          color: 'primary.contrastText',
-                          marginLeft: 1,
-                        },
-                      }}
-                    >
-                      <Typography
-                        color="primary.contrastText"
-                        sx={{
-                          textDecoration: path === '/' ? 'underline' : 'none',
-                          textDecorationColor: theme.palette.tertiary.main,
-                          textDecorationThickness: '1px',
-                          textDecorationStyle: 'solid',
-                          textUnderlineOffset: '6px',
-                          '&:hover': {
-                            textDecoration: 'underline',
-                            textDecorationColor: theme.palette.tertiary.main,
-                            textDecorationThickness: '1px',
-                            textDecorationStyle: 'solid',
-                            textUnderlineOffset: '6px',
-                          },
-                        }}
-                      >
-                        Home
-                      </Typography>
-                    </Button>
-                    <Menu
-                      id="scroll-menu"
-                      anchorEl={anchorEl}
-                      open={Boolean(anchorEl)}
-                      onClose={handleClose}
-                      anchorOrigin={{
-                        vertical: 'bottom',
-                        horizontal: 'center',
-                      }}
-                      transformOrigin={{
-                        vertical: 'top',
-                        horizontal: 'center',
-                      }}
-                      slotProps={{
-                        list: {
-                          'aria-labelledby': 'scroll-menu-button',
-                        },
-                      }}
-                    >
-                      {SCROLL_MENU.map((item, index) => (
-                        <MenuItem
-                          key={index}
-                          component={Link}
-                          href={`/#${item.section}`}
-                          onClick={handleClose}
-                        >
-                          {item.label}
-                        </MenuItem>
-                      ))}
-                    </Menu>
-                  </div>
+            <IconButton
+              size="large"
+              edge="start"
+              aria-label="menu"
+              sx={{
+                display: { xs: 'block', md: 'none' },
+                color: 'primary.contrastText',
+                marginRight: 2,
+              }}
+            >
+              <RiMenu5Fill onClick={() => setIsMenuOpen(!isMenuOpen)} />
+            </IconButton>
+            <Stack
+              spacing={4}
+              display={{ xs: 'none', md: 'flex' }}
+              direction={'row'}
+            >
+              <Box sx={{ display: 'flex', gap: 4 }}>
+                <div>
                   <Button
+                    id="scroll-menu-button"
                     variant="text"
-                    href="/projects"
+                    aria-controls={isScrollMenuOpen ? 'basic-menu' : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={isScrollMenuOpen ? 'true' : undefined}
+                    endIcon={<LuChevronDown />}
+                    onClick={handleMenu}
                     sx={{
                       cursor: 'pointer',
+                      '& .MuiButton-endIcon': {
+                        color: 'primary.contrastText',
+                        marginLeft: 1,
+                      },
                     }}
                   >
                     <Typography
                       color="primary.contrastText"
                       sx={{
-                        textDecoration:
-                          path === '/projects' ? 'underline' : 'none',
+                        textDecoration: path === '/' ? 'underline' : 'none',
                         textDecorationColor: theme.palette.tertiary.main,
                         textDecorationThickness: '1px',
                         textDecorationStyle: 'solid',
@@ -216,21 +156,79 @@ const Navigation = () => {
                         },
                       }}
                     >
-                      Projects
+                      Home
                     </Typography>
                   </Button>
-                  <NavigationButton
-                    variant="contained"
-                    component={Link}
-                    href="/profile/Resume-KendrickDeLaPena.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Menu
+                    id="scroll-menu"
+                    anchorEl={anchorEl}
+                    open={Boolean(anchorEl)}
+                    onClose={handleClose}
+                    anchorOrigin={{
+                      vertical: 'bottom',
+                      horizontal: 'center',
+                    }}
+                    transformOrigin={{
+                      vertical: 'top',
+                      horizontal: 'center',
+                    }}
+                    slotProps={{
+                      list: {
+                        'aria-labelledby': 'scroll-menu-button',
+                      },
+                    }}
                   >
-                    <Typography>Resume</Typography>
-                  </NavigationButton>
-                </Box>
-              </Stack>
-            )}
+                    {SCROLL_MENU.map((item, index) => (
+                      <MenuItem
+                        key={index}
+                        component={Link}
+                        href={`/#${item.section}`}
+                        onClick={handleClose}
+                      >
+                        {item.label}
+                      </MenuItem>
+                    ))}
+                  </Menu>
+                </div>
+                <Button
+                  variant="text"
+                  href="/projects"
+                  sx={{
+                    cursor: 'pointer',
+                  }}
+                >
+                  <Typography
+                    color="primary.contrastText"
+                    sx={{
+                      textDecoration:
+                        path === '/projects' ? 'underline' : 'none',
+                      textDecorationColor: theme.palette.tertiary.main,
+                      textDecorationThickness: '1px',
+                      textDecorationStyle: 'solid',
+                      textUnderlineOffset: '6px',
+                      '&:hover': {
+                        textDecoration: 'underline',
+                        textDecorationColor: theme.palette.tertiary.main,
+                        textDecorationThickness: '1px',
+                        textDecorationStyle: 'solid',
+                        textUnderlineOffset: '6px',
+                      },
+                    }}
+                  >
+                    Projects
+                  </Typography>
+                </Button>
+                <NavigationButton
+                  variant="contained"
+                  component={Link}
+                  href="/profile/Resume-KendrickDeLaPena.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Typography>Resume</Typography>
+                </NavigationButton>
+              </Box>
+            </Stack>
           </Grid>
         </Grid>
       </Container>

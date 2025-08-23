@@ -33,8 +33,8 @@ const StyledToggleButtonGroup = styled((props: ToggleButtonGroupProps) => (
   '& .MuiToggleButton-root.Mui-selected': {
     backgroundColor: theme.palette.secondary.main,
     color: theme.palette.secondary.contrastText,
-    boxShadow: '2px 1px 3px rgba(0,0,0,0.4)',
-    backdropFilter: 'blur(8px)',
+    boxShadow: theme.shadows[3],
+    backdropFilter: 'blur(6px)',
     '&:hover': {
       backgroundColor: theme.palette.secondary.dark,
       color: theme.palette.secondary.contrastText,
