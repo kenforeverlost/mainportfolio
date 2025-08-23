@@ -77,7 +77,7 @@ export const HIGHLIGHTS = [
     icon: <FaComputer />,
   },
   {
-    label: 'Full Stack Proficienct',
+    label: 'Full Stack Proficient',
     icon: <FaCode />,
   },
 ]
