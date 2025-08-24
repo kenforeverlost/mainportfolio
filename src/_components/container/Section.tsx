@@ -1,9 +1,7 @@
 import React from 'react'
-import { Box, Container, Stack } from '@mui/material'
+import { Box, BoxProps, Container, Stack } from '@mui/material'
 
-import { SectionProps } from '@lib/types'
-
-const Section = (props: SectionProps) => {
+const Section = (props: BoxProps) => {
   return (
     <Box
       {...props}

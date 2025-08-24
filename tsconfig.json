@@ -24,7 +24,8 @@
       "@features/*": ["_features/*"],
       "@lib/*": ["_lib/*"],
       "@components/*": ["_components/*"],
-      "@contexts/*": ["_contexts/*"]
+      "@contexts/*": ["_contexts/*"],
+      "@type/*": ["_types/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

@@ -1,6 +1,7 @@
 'use client'
 
 import { ChangeEvent, useState } from 'react'
+import { FaPaperPlane } from 'react-icons/fa'
 import {
   Alert,
   AlertProps,
@@ -10,12 +11,11 @@ import {
   Portal,
 } from '@mui/material'
 
-import { MailFormType } from '@lib/types'
 import StyledPaper from '@components/StyledPaper'
 import StyledTextField from '@components/StyledTextField'
-import StyledButton from './StyledButton'
-import StyledSnackbar from './StyledSnackbar'
-import { FaPaperPlane } from 'react-icons/fa'
+import StyledButton from '@components/StyledButton'
+import StyledSnackbar from '@components/StyledSnackbar'
+import { MailFormType } from '@type/general'
 
 const blankMailForm: MailFormType = {
   name: '',

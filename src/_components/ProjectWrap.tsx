@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { Typography, Box, Stack, ButtonBase } from '@mui/material'
 
 import StyledPaper from '@components/StyledPaper'
-import { ProjectsType } from '@lib/types'
+import { ProjectsType } from '@type/general'
 
 const ProjectWrap = ({ project }: { project: ProjectsType }) => {
   const {

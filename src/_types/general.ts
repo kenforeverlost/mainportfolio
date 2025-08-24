@@ -18,11 +18,3 @@ export interface ProjectsType {
   tools: string[]
   image: string[]
 }
-
-export interface SectionProps extends BoxProps {}
-
-export interface ProfileSectionProps extends SectionProps {
-  title: string
-  subtitle?: string
-  description?: string
-}

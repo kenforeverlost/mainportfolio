@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kendrick De La Pena Portfolio
 
-## Getting Started
+## Overview
 
-First, run the development server:
+This repository contains the source code for my portfolio website. The site showcases my experience as a software engineer and demonstrates modern web development techniques including Next.js, Supabase integration, and Material UI.
+
+## Features
+
+- Hero section with professional profile
+- About Me section with quick facts
+- Skills section with categorized technical stack
+- Work History section highlighting professional experience
+- Projects section with detailed project cards and tech stack
+- Contact form for inquiries
+- Responsive design for mobile and desktop
+- Parallel & Intercepting routing implemented to demonstrate advanced Next.js features
+
+## Tech Stack
+
+- **Frontend:** Next.js, TypeScript, React, Material UI
+- **Backend & Database:** Supabase, PostgreSQL
+
+## Live Demo
+
+[View the Portfolio Website](https://www.kendrickdelapena.com/)
+
+## Installation
+
+### Prerequisites
+
+- Node.js >= 18.x
+- Yarn package manager
+
+### Steps
+
+1. Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/<your-username>/portfolio.git
+cd portfolio
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+yarn install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Set up environment variables:
+   Create a `.env.local` file with necessary keys (e.g., Supabase URL, Supabase anon key).
 
-## Learn More
+4. Run the development server:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+yarn dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+5. Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Usage
 
-## Deploy on Vercel
+- Navigate through sections using the top navigation or the scroll menu.
+- Explore projects to see live implementations and tech stacks.
+- Use the contact form to send inquiries.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Notes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Parallel and Intercepting Routing is used to demonstrate advanced Next.js techniques; it is not strictly necessary for the portfolio's core functionality.
+- All projects featured on the site highlight professional work or personal development projects.
+
+## Contributing
+
+This repository is primarily for personal portfolio purposes. Contributions are not currently accepted.
+
+## License
+
+This project is for professional and educational use. All rights reserved by Kendrick De La Pena.

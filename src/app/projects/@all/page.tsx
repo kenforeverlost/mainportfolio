@@ -6,7 +6,7 @@ import { Box, Grid, Stack } from '@mui/material'
 import ProjectWrap from '@components/ProjectWrap'
 import SegmentedButton from '@components/SegmentedButton'
 import { PROJECTS } from '@lib/constants'
-import { ProjectsType } from '@lib/types'
+import { ProjectsType } from '@type/general'
 
 export default function ProjectsAll() {
   const [filter, setFilter] = useState<string>('All')

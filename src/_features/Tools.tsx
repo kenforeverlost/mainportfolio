@@ -1,7 +1,6 @@
 import { Box, Grid, Stack, Typography } from '@mui/material'
 
 import AnimatedBox from '@components/AnimatedBox'
-import ProfileSection from '@components/ProfileSection'
 import SkillWrap from '@components/SkillWrap'
 import Section from '@components/container/Section'
 import { VisibleProvider } from '@contexts/VisibleContext'

@@ -6,7 +6,7 @@ import { Box, Divider, Link, ListItem, Stack, Typography } from '@mui/material'
 import StyledChip from '@components/StyledChip'
 import StyledList from '@components/StyledList'
 import ToolsChipWrap from '@components/ToolsChipWrap'
-import { ProjectsType } from '@lib/types'
+import { ProjectsType } from '@type/general'
 
 interface ProjectsSlugModalProps {
   projectData: ProjectsType
