@@ -33,4 +33,4 @@ yarn-error.log*
 .env*.local
 
 # test
-/app/test/
+/src/app/test/

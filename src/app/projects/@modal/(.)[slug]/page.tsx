@@ -7,8 +7,8 @@ import { Box, IconButton, Portal, Stack, Typography } from '@mui/material'
 
 import ProjectDetailsWrap from '@components/ProjectDetailsWrap'
 import StyledModal from '@components/StyledModal'
+import StyledPaper from '@components/StyledPaper'
 import { PROJECTS } from '@lib/constants'
-import StyledPaper from '@/app/_components/StyledPaper'
 
 interface ProjectsSlugModalProps {
   params: Promise<{ slug: string }>
