@@ -173,7 +173,6 @@ const Hero = () => {
               >
                 <StyledButton
                   href="/projects"
-                  component={Link}
                   variant="contained"
                   endIcon={<LuChevronRight />}
                   sx={{
